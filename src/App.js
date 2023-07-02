@@ -1,8 +1,6 @@
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy } from "react";
 import ScrollToTop from "./helpers/scroll-top";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { fetchProducts } from "./store/actions/product-actions";
 import { Payment } from "./pages/other/Payment";
 import { MyOrders } from "./pages/other/MyOrders";
 import { Store } from "./pages/other/Store";
@@ -14,7 +12,7 @@ import { Privacy } from "./pages/other/Privacy";
 import Search from "./pages/other/Search";
 
 // home pages
-const HomeFashionEight = lazy(() => import("./pages/home/HomeFashionEight"));
+const Home = lazy(() => import("./pages/home/Home"));
 
 // shop pages
 const ShopGridStandard = lazy(() => import("./pages/shop/ShopGridStandard"));
@@ -53,10 +51,7 @@ const App = () => {
             </div>
           }>
           <Routes>
-            <Route
-              path={process.env.PUBLIC_URL + "/"}
-              element={<HomeFashionEight />}
-            />
+            <Route path={process.env.PUBLIC_URL + "/"} element={<Home />} />
             {/* Shop product pages */}
             <Route
               path={

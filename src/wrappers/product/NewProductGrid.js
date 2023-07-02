@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ProductGridTwo from "./ProductGridTwo";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 
-const NewProductGrid = ({ category, limit }) => {
+const NewProductGrid = ({ categoryHandle, limit }) => {
   return (
     <div className="product-area pb-60 section-padding-1">
       <div className="container-fluid">
@@ -15,7 +15,7 @@ const NewProductGrid = ({ category, limit }) => {
         />
         <div className="row five-column">
           <ProductGridTwo
-            category={category}
+            categoryHandle={categoryHandle}
             type="new"
             limit={limit}
             spaceBottomClass="mb-25"
@@ -27,8 +27,8 @@ const NewProductGrid = ({ category, limit }) => {
 };
 
 NewProductGrid.propTypes = {
-  category: PropTypes.string,
-  limit: PropTypes.number
+  categoryHandle: PropTypes.string,
+  limit: PropTypes.number,
 };
 
 export default NewProductGrid;

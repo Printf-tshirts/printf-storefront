@@ -1,13 +1,7 @@
 import PropTypes from "prop-types";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import clsx from "clsx";
-import { getDiscountPrice } from "../../helpers/product";
-import ProductModal from "./ProductModal";
-import { addToCart } from "../../store/slices/cart-slice";
-import { addToWishlist } from "../../store/slices/wishlist-slice";
-import { addToCompare } from "../../store/slices/compare-slice";
 
 const ProductGridSingleTwo = ({
   product,
@@ -19,30 +13,35 @@ const ProductGridSingleTwo = ({
   colorClass,
   titlePriceClass,
 }) => {
-  const [modalShow, setModalShow] = useState(false);
-  const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
+  const variant = product.variants[0];
+  const discountedPrice = variant.price;
+  const finalProductPrice = +(
+    variant.compare_at_price * currency.currencyRate
+  ).toFixed(2);
   const finalDiscountedPrice = +(
     discountedPrice * currency.currencyRate
   ).toFixed(2);
-  const dispatch = useDispatch();
 
   return (
     <Fragment>
       <div className={clsx("product-wrap-2", spaceBottomClass, colorClass)}>
         <div className="product-img">
-          <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+          <Link
+            to={`/${product.categories[0].handle}/${variant.handle}/${variant.product_code}`}>
             <img className="default-img" src={product.images[0].src} alt="" />
-            {product.image.length > 1 ? (
-              <img className="hover-img" src={product.images[1].src} alt="" />
-            ) : (
-              ""
-            )}
+            <img className="hover-img" src={variant.images[0].src} alt="" />
           </Link>
-          {product.discount || product.new ? (
+          {finalProductPrice !== finalDiscountedPrice || product.new ? (
             <div className="product-img-badges">
-              {product.discount ? (
-                <span className="pink">-{product.discount}%</span>
+              {finalProductPrice !== finalDiscountedPrice ? (
+                <span className="pink">
+                  -
+                  {Math.round(
+                    ((finalProductPrice - finalDiscountedPrice) * 100) /
+                      finalProductPrice,
+                  )}
+                  %
+                </span>
               ) : (
                 ""
               )}
@@ -52,21 +51,20 @@ const ProductGridSingleTwo = ({
             ""
           )}
 
-          <div className="product-action-2">
+          {/* <div className="product-action-2">
             {product.affiliateLink ? (
               <a
                 href={product.affiliateLink}
                 rel="noopener noreferrer"
                 target="_blank"
                 title="Buy now">
-                {" "}
-                <i className="fa fa-shopping-cart"></i>{" "}
+                <i className="pe-7s-cart"></i>
               </a>
             ) : product.variation && product.variation.length >= 1 ? (
               <Link
                 to={`${process.env.PUBLIC_URL}/product/${product.id}`}
-                title="Select options">
-                <i className="fa fa-cog"></i>
+                title="Select option">
+                <i className="pe-7s-cart"></i>
               </Link>
             ) : product.stock && product.stock > 0 ? (
               <button
@@ -80,31 +78,14 @@ const ProductGridSingleTwo = ({
                 title={
                   cartItem !== undefined ? "Added to cart" : "Add to cart"
                 }>
-                {" "}
-                <i className="fa fa-shopping-cart"></i>{" "}
+                <i className="pe-7s-cart"></i>
               </button>
             ) : (
               <button disabled className="active" title="Out of stock">
-                <i className="fa fa-shopping-cart"></i>
+                <i className="pe-7s-cart"></i>
               </button>
             )}
-
-            <button onClick={() => setModalShow(true)} title="Quick View">
-              <i className="fa fa-eye"></i>
-            </button>
-
-            <button
-              className={compareItem !== undefined ? "active" : ""}
-              disabled={compareItem !== undefined}
-              title={
-                compareItem !== undefined
-                  ? "Added to compare"
-                  : "Add to compare"
-              }
-              onClick={() => dispatch(addToCompare(product))}>
-              <i className="fa fa-retweet"></i>
-            </button>
-          </div>
+          </div> */}
         </div>
         <div className="product-content-2">
           <div
@@ -112,8 +93,9 @@ const ProductGridSingleTwo = ({
               titlePriceClass ? titlePriceClass : ""
             }`}>
             <h3>
-              <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
-                {product.name}
+              <Link
+                to={`/${product.categories[0].handle}/${variant.handle}/${variant.product_code}`}>
+                {product.title}
               </Link>
             </h3>
             <div className="price-2">
@@ -129,7 +111,7 @@ const ProductGridSingleTwo = ({
               )}
             </div>
           </div>
-          <div className="pro-wishlist-2">
+          {/* <div className="pro-wishlist-2">
             <button
               className={wishlistItem !== undefined ? "active" : ""}
               disabled={wishlistItem !== undefined}
@@ -141,11 +123,11 @@ const ProductGridSingleTwo = ({
               onClick={() => dispatch(addToWishlist(product))}>
               <i className="fa fa-heart-o" />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* product modal */}
-      <ProductModal
+      {/* <ProductModal
         show={modalShow}
         onHide={() => setModalShow(false)}
         product={product}
@@ -155,7 +137,7 @@ const ProductGridSingleTwo = ({
         finalDiscountedPrice={finalDiscountedPrice}
         wishlistItem={wishlistItem}
         compareItem={compareItem}
-      />
+      /> */}
     </Fragment>
   );
 };
