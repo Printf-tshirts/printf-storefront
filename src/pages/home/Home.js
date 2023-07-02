@@ -2,11 +2,13 @@ import React, { Fragment } from "react";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import BannerEleven from "../../wrappers/banner/BannerEleven";
+import BannerThirty from "../../wrappers/banner/BannerThirty";
 import CountDownThree from "../../wrappers/countdown/CountDownThree";
 import VideoPopup from "../../components/video-popup/VideoPopup";
 import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
 import HeroSliderTen from "../../wrappers/hero-slider/HeroSliderTen";
 import NewProductGrid from "../../wrappers/product/NewProductGrid";
+import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 
 const Home = () => {
   return (
@@ -36,6 +38,10 @@ const Home = () => {
           dateTime="November 13, 2023 12:12:00"
           countDownImage="/assets/img/banner/deal-2.png"
         />
+        {/* banner */}
+        <BannerThirty spaceTopClass="pt-100" spaceBottomClass="pb-70" />
+        {/* blog featured */}
+        <BlogFeatured spaceBottomClass="pb-55" />
         {/* product slider */}
         {/* <ProductSliderThree categoryHandle="tshirts" /> */}
         {/* brand logo slider */}
