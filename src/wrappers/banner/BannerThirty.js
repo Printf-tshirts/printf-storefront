@@ -12,7 +12,8 @@ const BannerThirty = ({ spaceTopClass, spaceBottomClass }) => {
               <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
                 <img
                   src={
-                    process.env.PUBLIC_URL + "/assets/img/banner/banner-42.jpg"
+                    process.env.PUBLIC_URL +
+                    "/assets/img/banner/banner-770x455.jpg"
                   }
                   alt=""
                   className="img-fluid"
@@ -25,7 +26,8 @@ const BannerThirty = ({ spaceTopClass, spaceBottomClass }) => {
               <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
                 <img
                   src={
-                    process.env.PUBLIC_URL + "/assets/img/banner/banner-38.jpg"
+                    process.env.PUBLIC_URL +
+                    "/assets/img/banner/banner-369x454.png"
                   }
                   alt=""
                   className="img-fluid"
@@ -41,7 +43,7 @@ const BannerThirty = ({ spaceTopClass, spaceBottomClass }) => {
 
 BannerThirty.propTypes = {
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default BannerThirty;

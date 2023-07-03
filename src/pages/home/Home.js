@@ -36,7 +36,7 @@ const Home = () => {
           spaceTopClass="pt-100"
           spaceBottomClass="pb-100"
           dateTime="November 13, 2023 12:12:00"
-          countDownImage="/assets/img/banner/deal-2.png"
+          countDownImage="/assets/img/banner/deal-2.jpg"
         />
         {/* banner */}
         <BannerThirty spaceTopClass="pt-100" spaceBottomClass="pb-70" />

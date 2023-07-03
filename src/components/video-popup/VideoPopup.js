@@ -14,7 +14,8 @@ const VideoPopup = ({ spaceBottomClass }) => {
             <div className="video-popup__image">
               <img
                 src={
-                  process.env.PUBLIC_URL + "/assets/img/banner/banner-41.jpg"
+                  process.env.PUBLIC_URL +
+                  "/assets/img/banner/video-thumbnail.png"
                 }
                 alt=""
                 className="img-fluid"
@@ -53,7 +54,7 @@ const VideoPopup = ({ spaceBottomClass }) => {
 };
 
 VideoPopup.propTypes = {
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
 };
 
 export default VideoPopup;
