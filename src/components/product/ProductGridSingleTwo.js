@@ -28,8 +28,8 @@ const ProductGridSingleTwo = ({
         <div className="product-img">
           <Link
             to={`/${product.categories[0].handle}/${variant.handle}/${variant.product_code}`}>
-            <img className="default-img" src={product.images[0].src} alt="" />
-            <img className="hover-img" src={variant.images[0].src} alt="" />
+            <img className="default-img" src={variant.images[0]?.src} alt="" />
+            <img className="hover-img" src={product.images[0]?.src} alt="" />
           </Link>
           {finalProductPrice !== finalDiscountedPrice || product.new ? (
             <div className="product-img-badges">
