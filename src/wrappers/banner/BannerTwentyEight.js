@@ -9,7 +9,7 @@ const BannerTwentyEight = ({ spaceTopClass, spaceBottomClass }) => {
         <div className="row">
           <div className="col-md-8">
             <div className="single-banner mb-30">
-              <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+              <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/img/banner/banner-37.jpg"
@@ -22,7 +22,7 @@ const BannerTwentyEight = ({ spaceTopClass, spaceBottomClass }) => {
           </div>
           <div className="col-md-4">
             <div className="single-banner mb-30">
-              <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+              <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/img/banner/banner-38.jpg"
@@ -41,7 +41,7 @@ const BannerTwentyEight = ({ spaceTopClass, spaceBottomClass }) => {
 
 BannerTwentyEight.propTypes = {
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default BannerTwentyEight;

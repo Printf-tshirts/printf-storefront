@@ -4,13 +4,13 @@
     "title": "New Arrivals",
     "subtitle": "Fresh Your Mind & <br/> Feeling love",
     "image": "/assets/img/slider/slider-10.jpg",
-    "url": "/shop-grid-standard"
+    "url": "/tshirts"
   },
   {
     "id": 2,
     "title": "New Arrivals",
     "subtitle": "Fresh Your Mind & <br/> Feeling love",
     "image": "/assets/img/slider/slider-10-2.jpg",
-    "url": "/shop-grid-standard"
+    "url": "/tshirts"
   }
 ]

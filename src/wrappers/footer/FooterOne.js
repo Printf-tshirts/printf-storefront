@@ -50,21 +50,21 @@ const FooterOne = ({
                   <li>
                     <Link to={process.env.PUBLIC_URL + "/about"}>About us</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>
                       Store location
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to={process.env.PUBLIC_URL + "/contact"}>
                       Contact
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>
                       Orders tracking
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -94,12 +94,12 @@ const FooterOne = ({
                       Terms & Conditions
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>Size guide</Link>
                   </li>
                   <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>FAQs</Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -119,22 +119,22 @@ const FooterOne = ({
               </div>
               <div className="footer-list">
                 <ul>
-                  <li>
+                  {/* <li>
                     <a
                       href="//www.facebook.com"
                       target="_blank"
                       rel="noopener noreferrer">
                       Facebook
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a
                       href="//www.twitter.com"
                       target="_blank"
                       rel="noopener noreferrer">
                       Twitter
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a
                       href="//www.instagram.com"

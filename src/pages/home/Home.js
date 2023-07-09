@@ -14,7 +14,8 @@ const Home = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Fashion Home"
+        title={"Home"}
+        titleTemplate="PrintCoder"
         description="Fashion home of flone react minimalist eCommerce template."
       />
       <LayoutOne
@@ -32,16 +33,16 @@ const Home = () => {
         {/* banner */}
         <BannerEleven />
         {/* countdown */}
-        <CountDownThree
+        {/* <CountDownThree
           spaceTopClass="pt-100"
           spaceBottomClass="pb-100"
           dateTime="November 13, 2023 12:12:00"
           countDownImage="/assets/img/banner/deal-2.jpg"
-        />
+        /> */}
         {/* banner */}
         <BannerThirty spaceTopClass="pt-100" spaceBottomClass="pb-70" />
         {/* blog featured */}
-        <BlogFeatured spaceBottomClass="pb-55" />
+        {/* <BlogFeatured spaceBottomClass="pb-55" /> */}
         {/* product slider */}
         {/* <ProductSliderThree categoryHandle="tshirts" /> */}
         {/* brand logo slider */}

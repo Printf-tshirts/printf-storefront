@@ -5,7 +5,7 @@
     "subtitle": "Final Sale",
     "text": "30% off Summer Vacation",
     "image": "/assets/img/slider/slider-6.jpg",
-    "url": "/shop-grid-standard"
+    "url": "/tshirts"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "subtitle": "Final Sale",
     "text": "40% off Summer Vacation",
     "image": "/assets/img/slider/slider-6-1.jpg",
-    "url": "/shop-grid-standard"
+    "url": "/tshirts"
   },
   {
     "id": 3,
@@ -21,6 +21,6 @@
     "subtitle": "Final Sale",
     "text": "40% off Summer Vacation",
     "image": "/assets/img/slider/slider-6-2.jpg",
-    "url": "/shop-grid-standard"
+    "url": "/tshirts"
   }
 ]

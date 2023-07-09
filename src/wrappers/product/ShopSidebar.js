@@ -4,24 +4,29 @@ import clsx from "clsx";
 // import ShopCategories from "../../components/product/ShopCategories";
 import ShopColor from "../../components/product/ShopColor";
 import ShopSize from "../../components/product/ShopSize";
-// import ShopTag from "../../components/product/ShopTag";
+import ShopTag from "../../components/product/ShopTag";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getAllColorsAPI } from "../../apis/master.api";
+import { getTagsFromCategoryAPI } from "../../apis/products.api";
 
-const ShopSidebar = ({ getSortParams, sideSpaceClass }) => {
+const ShopSidebar = ({ getSortParams, sideSpaceClass, categoryHandle }) => {
   // const [uniqueCategories, setUniqueCategories] = useState([]);
   const [uniqueColors, setUniqueColors] = useState([]);
   const [uniqueSizes, setUniqueSizes] = useState([]);
-  // const [uniqueTags, setUniqueTags] = useState([]);
-  const fetchColors = async () => {
+  const [uniqueTags, setUniqueTags] = useState([]);
+  const fetchParams = async () => {
     getAllColorsAPI().then((res) => {
       setUniqueColors(res.data.colors);
     });
+    getTagsFromCategoryAPI({ categoryHandle }).then((res) => {
+      setUniqueTags(res.data.tags);
+    });
     setUniqueSizes(["XS", "S", "M", "L", "XL", "XXL"]);
   };
+
   useEffect(() => {
-    fetchColors();
+    fetchParams();
   }, []);
   return (
     <div className={clsx("sidebar-style", sideSpaceClass)}>
@@ -41,7 +46,7 @@ const ShopSidebar = ({ getSortParams, sideSpaceClass }) => {
       <ShopSize sizes={uniqueSizes} getSortParams={getSortParams} />
 
       {/* filter by tag */}
-      {/* <ShopTag tags={uniqueTags} getSortParams={getSortParams} /> */}
+      <ShopTag tags={uniqueTags} getSortParams={getSortParams} />
     </div>
   );
 };

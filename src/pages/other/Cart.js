@@ -280,7 +280,7 @@ const Cart = () => {
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
                         <Link
-                          to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                          to={process.env.PUBLIC_URL + "/tshirts"}>
                           Continue Shopping
                         </Link>
                       </div>

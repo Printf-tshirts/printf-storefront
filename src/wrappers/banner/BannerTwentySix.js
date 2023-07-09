@@ -23,9 +23,7 @@ const BannerTwentySix = ({ spaceBottomClass }) => {
                   Medix Mask <br />
                   Up To 40% Off
                 </h2>
-                <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                  Shop Now
-                </Link>
+                <Link to={process.env.PUBLIC_URL + "/tshirts"}>Shop Now</Link>
               </div>
             </div>
           </div>
@@ -44,9 +42,7 @@ const BannerTwentySix = ({ spaceBottomClass }) => {
                   Hand Gloves <br />
                   Up To 30% Off
                 </h2>
-                <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                  Shop Now
-                </Link>
+                <Link to={process.env.PUBLIC_URL + "/tshirts"}>Shop Now</Link>
               </div>
             </div>
           </div>
@@ -66,9 +62,7 @@ const BannerTwentySix = ({ spaceBottomClass }) => {
                   Hand Sanitizer <br />
                   Up To 40% Off
                 </h2>
-                <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                  Shop Now
-                </Link>
+                <Link to={process.env.PUBLIC_URL + "/tshirts"}>Shop Now</Link>
               </div>
             </div>
           </div>
@@ -79,7 +73,7 @@ const BannerTwentySix = ({ spaceBottomClass }) => {
 };
 
 BannerTwentySix.propTypes = {
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
 };
 
 export default BannerTwentySix;

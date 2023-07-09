@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import clsx from "clsx"
+import clsx from "clsx";
 import { Link } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
@@ -14,8 +14,7 @@ const TabProductTwo = ({ spaceBottomClass, category }) => {
         <Tab.Container defaultActiveKey="bestSeller">
           <Nav
             variant="pills"
-            className="product-tab-list pt-30 pb-55 text-center"
-          >
+            className="product-tab-list pt-30 pb-55 text-center">
             <Nav.Item>
               <Nav.Link eventKey="newArrival">
                 <h4>New Arrivals</h4>
@@ -66,10 +65,7 @@ const TabProductTwo = ({ spaceBottomClass, category }) => {
           </Tab.Content>
         </Tab.Container>
         <div className="view-more text-center mt-20 toggle-btn6 col-12">
-          <Link
-            className="loadMore6"
-            to={process.env.PUBLIC_URL + "/shop-grid-standard"}
-          >
+          <Link className="loadMore6" to={process.env.PUBLIC_URL + "/tshirts"}>
             VIEW MORE PRODUCTS
           </Link>
         </div>
@@ -80,7 +76,7 @@ const TabProductTwo = ({ spaceBottomClass, category }) => {
 
 TabProductTwo.propTypes = {
   category: PropTypes.string,
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
 };
 
 export default TabProductTwo;

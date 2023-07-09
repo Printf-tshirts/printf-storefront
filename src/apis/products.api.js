@@ -26,3 +26,9 @@ export const getProductsBySearchAPI = ({ query, skip, limit }) => {
     `${BACKEND_URL}/products/get-products-by-search?searchTerm=${query}&skip=${skip}&limit=${limit}`,
   );
 };
+
+export const getTagsFromCategoryAPI = ({ categoryHandle }) => {
+  return axios.get(
+    `${BACKEND_URL}/products/get-tags-from-category?categoryHandle=${categoryHandle}`,
+  );
+};

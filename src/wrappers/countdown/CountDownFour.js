@@ -7,7 +7,7 @@ const CountDownFour = ({
   spaceTopClass,
   spaceBottomClass,
   dateTime,
-  countDownImage
+  countDownImage,
 }) => {
   return (
     <div className={clsx("funfact-area", spaceTopClass, spaceBottomClass)}>
@@ -20,15 +20,13 @@ const CountDownFour = ({
                 <CountdownTimer date={dateTime} />
               </div>
               <div className="funfact-btn funfact-btn--round-shape funfact-btn-violet btn-hover">
-                <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                  SHOP NOW
-                </Link>
+                <Link to={process.env.PUBLIC_URL + "/tshirts"}>SHOP NOW</Link>
               </div>
             </div>
           </div>
           <div className="col-md-4 col-lg-6">
             <div className="funfact-image">
-              <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+              <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                 <img
                   src={process.env.PUBLIC_URL + countDownImage}
                   alt=""
@@ -47,7 +45,7 @@ CountDownFour.propTypes = {
   countDownImage: PropTypes.string,
   dateTime: PropTypes.string,
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default CountDownFour;

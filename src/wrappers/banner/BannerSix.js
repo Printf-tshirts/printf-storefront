@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 
 const BannerSix = ({ spaceTopClass, spaceBottomClass }) => {
   return (
-    <div
-      className={clsx("banner-area", spaceTopClass, spaceBottomClass)}
-    >
+    <div className={clsx("banner-area", spaceTopClass, spaceBottomClass)}>
       <div className="container padding-20-row-col">
         <div className="row">
           <div className="col-lg-6 col-md-6">
             <div className="single-banner mb-20">
-              <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+              <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/img/banner/banner-32.png"
@@ -23,15 +21,13 @@ const BannerSix = ({ spaceTopClass, spaceBottomClass }) => {
                 <span>-20% Off</span>
                 <h2>New Tulip</h2>
                 <h5>Best for your Mind.</h5>
-                <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                  SHOP NOW
-                </Link>
+                <Link to={process.env.PUBLIC_URL + "/tshirts"}>SHOP NOW</Link>
               </div>
             </div>
           </div>
           <div className="col-lg-6 col-md-6">
             <div className="single-banner mb-20">
-              <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+              <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/img/banner/banner-33.png"
@@ -44,13 +40,13 @@ const BannerSix = ({ spaceTopClass, spaceBottomClass }) => {
                 <p>
                   Starting At <span>$99.00</span>
                 </p>
-                <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                   <i className="fa fa-long-arrow-right" />
                 </Link>
               </div>
             </div>
             <div className="single-banner mb-20">
-              <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+              <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/img/banner/banner-34.png"
@@ -63,7 +59,7 @@ const BannerSix = ({ spaceTopClass, spaceBottomClass }) => {
                 <p>
                   Starting At <span>$99.00</span>
                 </p>
-                <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                   <i className="fa fa-long-arrow-right" />
                 </Link>
               </div>
@@ -77,7 +73,7 @@ const BannerSix = ({ spaceTopClass, spaceBottomClass }) => {
 
 BannerSix.propTypes = {
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default BannerSix;

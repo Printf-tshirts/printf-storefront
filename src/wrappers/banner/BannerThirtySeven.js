@@ -9,7 +9,7 @@ const BannerThirtySeven = ({ spaceBottomClass }) => {
         <div className="row no-gutters">
           <div className="col-lg-6 col-md-6">
             <div className="single-banner mr-15 mb-15">
-              <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+              <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/img/banner/banner-64.png"
@@ -21,7 +21,7 @@ const BannerThirtySeven = ({ spaceBottomClass }) => {
           </div>
           <div className="col-lg-6 col-md-6">
             <div className="single-banner ml-15 mb-15">
-              <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+              <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/img/banner/banner-65.png"
@@ -38,7 +38,7 @@ const BannerThirtySeven = ({ spaceBottomClass }) => {
 };
 
 BannerThirtySeven.propTypes = {
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
 };
 
 export default BannerThirtySeven;

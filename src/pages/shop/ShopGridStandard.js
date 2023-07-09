@@ -78,7 +78,7 @@ const ShopGridStandard = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Shop Page"
+        title={categoryHandle}
         description="Shop page of flone react minimalist eCommerce template."
       />
 
@@ -103,6 +103,7 @@ const ShopGridStandard = () => {
                   <div className="col-lg-3 order-2 order-lg-1">
                     {/* shop sidebar */}
                     <ShopSidebar
+                      categoryHandle={categoryHandle}
                       getSortParams={getSortParams}
                       sideSpaceClass="mr-30"
                     />

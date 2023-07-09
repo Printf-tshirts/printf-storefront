@@ -6,9 +6,10 @@ const HeroSliderThirtySixSingle = ({ data }) => {
     <div
       className="single-slider-2 slider-height-2 res-white-overly-xs d-flex valentine-slider-bg align-items-center bg-img"
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL + data.backgroundImage})`
-      }}
-    >
+        backgroundImage: `url(${
+          process.env.PUBLIC_URL + data.backgroundImage
+        })`,
+      }}>
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -27,8 +28,7 @@ const HeroSliderThirtySixSingle = ({ data }) => {
               <div className="valentine-btn btn-hover">
                 <Link
                   className="animated"
-                  to={process.env.PUBLIC_URL + "/shop-grid-standard"}
-                >
+                  to={process.env.PUBLIC_URL + "/tshirts"}>
                   SHOP NOW
                 </Link>
               </div>
@@ -41,7 +41,7 @@ const HeroSliderThirtySixSingle = ({ data }) => {
 };
 
 HeroSliderThirtySixSingle.propTypes = {
-  data: PropTypes.shape({})
+  data: PropTypes.shape({}),
 };
 
 export default HeroSliderThirtySixSingle;

@@ -4,13 +4,13 @@
     "title": "Natural & Healthy",
     "subtitle": "100% Organic Fruits Collection",
     "image": "/assets/img/slider/slider-8.jpg",
-    "url": "/shop-grid-standard"
+    "url": "/tshirts"
   },
   {
     "id": 2,
     "title": "Natural & Healthy",
     "subtitle": "100% Organic Veg Collection",
     "image": "/assets/img/slider/slider-8-2.jpg",
-    "url": "/shop-grid-standard"
+    "url": "/tshirts"
   }
 ]

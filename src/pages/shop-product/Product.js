@@ -52,7 +52,7 @@ const Product = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Product Page"
+        title={selectedVariant?.title}
         description="Product Page of flone react minimalist eCommerce template."
       />
 

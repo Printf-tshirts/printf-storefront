@@ -13,11 +13,10 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
       <p>
         &copy; {new Date().getFullYear()}{" "}
         <a
-          href="https://hasthemes.com"
+          href="https://www.printcoder.com/"
           rel="noopener noreferrer"
-          target="_blank"
-        >
-          Flone
+          target="_blank">
+          PrintCoder
         </a>
         .<br /> All Rights Reserved
       </p>
@@ -28,7 +27,7 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
 FooterCopyright.propTypes = {
   footerLogo: PropTypes.string,
   spaceBottomClass: PropTypes.string,
-  colorClass: PropTypes.string
+  colorClass: PropTypes.string,
 };
 
 export default FooterCopyright;

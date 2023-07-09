@@ -8,11 +8,9 @@ const FeatureIcon = ({ spaceTopClass, spaceBottomClass }) => {
     <div className={clsx("support-area", spaceTopClass, spaceBottomClass)}>
       <div className="container">
         <div className="row">
-          {featureIconData?.map(singleFeature => (
-            <div className="col-lg-3 col-sm-6" key={singleFeature.id}>
-              <FeatureIconSingle
-                singleFeature={singleFeature}
-              />
+          {featureIconData?.map((singleFeature) => (
+            <div className="col-lg-4 col-sm-6" key={singleFeature.id}>
+              <FeatureIconSingle singleFeature={singleFeature} />
             </div>
           ))}
         </div>
@@ -23,7 +21,7 @@ const FeatureIcon = ({ spaceTopClass, spaceBottomClass }) => {
 
 FeatureIcon.propTypes = {
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default FeatureIcon;

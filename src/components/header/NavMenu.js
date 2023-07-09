@@ -55,7 +55,7 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
               <li>
                 <ul>
                   <li className="mega-menu-img">
-                    <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                    <Link to={process.env.PUBLIC_URL + "/tshirts"}>
                       <img
                         src={
                           process.env.PUBLIC_URL +
@@ -74,11 +74,11 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
               {t("T-Shirts")}
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to={process.env.PUBLIC_URL + "/contact"}>
               {t("contact_us")}
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>
