@@ -8,19 +8,19 @@ import ShopTag from "../../components/product/ShopTag";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getAllColorsAPI } from "../../apis/master.api";
-import { getTagsFromCategoryAPI } from "../../apis/products.api";
+import { getAllDesignTypesAPI } from "../../apis/designTypes.api";
 
 const ShopSidebar = ({ getSortParams, sideSpaceClass, categoryHandle }) => {
   // const [uniqueCategories, setUniqueCategories] = useState([]);
   const [uniqueColors, setUniqueColors] = useState([]);
   const [uniqueSizes, setUniqueSizes] = useState([]);
-  const [uniqueTags, setUniqueTags] = useState([]);
+  const [uniqueDesignTypes, setUniqueDesignTypes] = useState([]);
   const fetchParams = async () => {
     getAllColorsAPI().then((res) => {
       setUniqueColors(res.data.colors);
     });
-    getTagsFromCategoryAPI({ categoryHandle }).then((res) => {
-      setUniqueTags(res.data.tags);
+    getAllDesignTypesAPI().then((res) => {
+      setUniqueDesignTypes(res.data.designTypes);
     });
     setUniqueSizes(["XS", "S", "M", "L", "XL", "XXL"]);
   };
@@ -38,15 +38,15 @@ const ShopSidebar = ({ getSortParams, sideSpaceClass, categoryHandle }) => {
         categories={uniqueCategories}
         getSortParams={getSortParams}
       /> */}
-
-      {/* filter by color */}
-      <ShopColor colors={uniqueColors} getSortParams={getSortParams} />
+      <h3>Filters</h3>
+      {/* filter by tag */}
+      <ShopTag tags={uniqueDesignTypes} getSortParams={getSortParams} />
 
       {/* filter by size */}
       <ShopSize sizes={uniqueSizes} getSortParams={getSortParams} />
 
-      {/* filter by tag */}
-      <ShopTag tags={uniqueTags} getSortParams={getSortParams} />
+      {/* filter by color */}
+      <ShopColor colors={uniqueColors} getSortParams={getSortParams} />
     </div>
   );
 };
