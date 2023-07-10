@@ -61,7 +61,7 @@ const ProductDescriptionInfo = ({
             </div>
           </div>
         ) : (
-          <span>{currency.currencySymbol + finalProductPrice} </span>
+          <span>{currency.currencySymbol + finalDiscountedPrice} </span>
         )}
       </div>
       {product.rating && product.rating > 0 ? (

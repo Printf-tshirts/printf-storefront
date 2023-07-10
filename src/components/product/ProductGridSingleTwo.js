@@ -14,13 +14,15 @@ const ProductGridSingleTwo = ({
   titlePriceClass,
 }) => {
   const variant = product.variants[0];
-  const discountedPrice = variant.price;
+  const discountedPrice = variant.compare_at_price
+    ? variant.compare_at_price - variant.price
+    : null;
   const finalProductPrice = +(
     variant.compare_at_price * currency.currencyRate
   ).toFixed(2);
-  const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
-  ).toFixed(2);
+  const finalDiscountedPrice = +(variant.price * currency.currencyRate).toFixed(
+    2,
+  );
 
   return (
     <Fragment>
@@ -33,7 +35,7 @@ const ProductGridSingleTwo = ({
           </Link>
           {finalProductPrice !== finalDiscountedPrice || product.new ? (
             <div className="product-img-badges">
-              {finalProductPrice !== finalDiscountedPrice ? (
+              {finalProductPrice !== 0 ? (
                 <span className="pink">
                   -
                   {Math.round(
@@ -107,7 +109,7 @@ const ProductGridSingleTwo = ({
                   </span>
                 </Fragment>
               ) : (
-                <span>{currency.currencySymbol + finalProductPrice} </span>
+                <span>{currency.currencySymbol + finalDiscountedPrice} </span>
               )}
             </div>
           </div>

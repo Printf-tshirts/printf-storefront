@@ -13,13 +13,15 @@ const ProductImageDescription = ({
   const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
-  const discountedPrice = variant.price;
+  const discountedPrice = variant.compare_at_price
+    ? variant.compare_at_price - variant.price
+    : null;
   const finalProductPrice = +(
     variant.compare_at_price * currency.currencyRate
   ).toFixed(2);
-  const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
-  ).toFixed(2);
+  const finalDiscountedPrice = +(variant.price * currency.currencyRate).toFixed(
+    2,
+  );
 
   return (
     <div className={clsx("shop-area", spaceTopClass, spaceBottomClass)}>

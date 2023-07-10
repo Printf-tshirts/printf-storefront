@@ -18,13 +18,15 @@ const ProductGridListSingle = ({
   const [modalShow, setModalShow] = useState(false);
   const { currentUser } = useSelector((state) => state.user);
   const variant = product.variants[0];
-  const discountedPrice = variant.price;
+  const discountedPrice = variant.compare_at_price
+    ? variant.compare_at_price - variant.price
+    : null;
   const finalProductPrice = +(
     variant.compare_at_price * currency.currencyRate
   ).toFixed(2);
-  const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
-  ).toFixed(2);
+  const finalDiscountedPrice = +(variant.price * currency.currencyRate).toFixed(
+    2,
+  );
   const dispatch = useDispatch();
 
   return (
@@ -148,7 +150,7 @@ const ProductGridListSingle = ({
                 </span>
               </Fragment>
             ) : (
-              <span>{currency.currencySymbol + finalProductPrice} </span>
+              <span>{currency.currencySymbol + finalDiscountedPrice} </span>
             )}
           </div>
         </div>
@@ -209,7 +211,7 @@ const ProductGridListSingle = ({
                     </span>
                   </Fragment>
                 ) : (
-                  <span>{currency.currencySymbol + finalProductPrice} </span>
+                  <span>{currency.currencySymbol + finalDiscountedPrice} </span>
                 )}
               </div>
               {product.rating && product.rating > 0 ? (

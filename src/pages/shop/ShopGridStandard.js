@@ -29,12 +29,16 @@ const ShopGridStandard = () => {
   useEffect(() => {
     setIsLoading(true);
     setFilterLoading(true);
-    dispatch(fetchProductsByCategory({ categoryHandle: categoryHandle })).then(
-      () => {
-        setIsLoading(false);
-        setFilterLoading(false);
-      },
-    );
+    dispatch(
+      fetchProductsByCategory({
+        categoryHandle: categoryHandle,
+        skip: 0,
+        limit: pageLimit,
+      }),
+    ).then(() => {
+      setIsLoading(false);
+      setFilterLoading(false);
+    });
   }, [categoryHandle, dispatch]);
   let { pathname } = useLocation();
 
@@ -53,11 +57,15 @@ const ShopGridStandard = () => {
   };
 
   useEffect(() => {
-    if (!sortType && !filterSortType) {
-      return;
-    }
+    // if (!sortType && !filterSortType) {
+    //   return;
+    // }
+    setIsLoading(true);
     setFilterLoading(true);
-    let payload = {};
+    let payload = {
+      skip: currentPage * pageLimit - pageLimit,
+      limit: pageLimit,
+    };
     if (sortType) {
       payload[sortType] = sortValue;
       if (sortType === "category") {
@@ -72,8 +80,17 @@ const ShopGridStandard = () => {
     }
     dispatch(fetchProductsByCategory(payload)).then(() => {
       setFilterLoading(false);
+      setIsLoading(false);
     });
-  }, [sortType, sortValue, filterSortType, filterSortValue, dispatch]);
+  }, [
+    sortType,
+    sortValue,
+    filterSortType,
+    filterSortValue,
+    dispatch,
+    currentPage,
+    pageLimit,
+  ]);
 
   return (
     <Fragment>
@@ -113,8 +130,10 @@ const ShopGridStandard = () => {
                     <ShopTopbar
                       getLayout={getLayout}
                       getFilterSortParams={getFilterSortParams}
-                      productCount={products.length}
-                      sortedProductCount={productsCount}
+                      productCount={productsCount}
+                      sortedProductCount={
+                        (currentPage - 1) * pageLimit + products.length
+                      }
                     />
 
                     {/* shop page content default */}
