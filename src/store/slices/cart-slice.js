@@ -36,7 +36,12 @@ const updateCart = async (state, { selectedShippingId, couponId }) => {
   if (!couponId) {
     delete cart.coupon;
   }
-  return await updateCartAPI({ cart });
+  return await updateCartAPI({ cart })
+    .then((res) => {})
+    .catch((err) => {
+      console.log(err);
+      cogoToast.error(err?.response?.data?.error, { position: "top-center" });
+    });
 };
 const cartSlice = createSlice({
   name: "cart",
@@ -58,7 +63,6 @@ const cartSlice = createSlice({
           variant.color._id === item.variant.color._id &&
           size === item.size,
       );
-      console.log("cartItems", JSON.stringify(state.cartItems));
       if (!cartItem) {
         state.cartItems.push({
           variant: variant,
@@ -83,9 +87,17 @@ const cartSlice = createSlice({
       } else {
         state.cartItems = state.cartItems.map((item) => {
           if (item.cartItemId === cartItem.cartItemId) {
+            let minQuantity = Math.min(
+              quantity ? item.quantity + quantity : item.quantity + 1,
+              variant.sizes.find((s) => s.sizeOption === size).inventory,
+            );
+            console.log(
+              "minQuantity",
+              variant.sizes.find((s) => s.sizeOption === size).inventory,
+            );
             return {
               ...item,
-              quantity: quantity ? item.quantity + quantity : item.quantity + 1,
+              quantity: minQuantity,
               selectedProductColor: variant.color._id,
               selectedProductSize: size,
             };
@@ -93,23 +105,23 @@ const cartSlice = createSlice({
           return item;
         });
       }
-      cogoToast.success("Added To Cart", { position: "bottom-left" });
+      cogoToast.success("Added To Cart", { position: "top-center" });
       state.cartTotalPrice = cartTotalPriceCalculator(state.cartItems);
       state.user = action.payload.currentUser;
       if (!state.user) {
         if (!localStorage.getItem("sessionId"))
           localStorage.setItem("sessionId", uuidv4());
       }
-      updateCart(state, {}).then((res) => {});
+      updateCart(state, {});
     },
     deleteFromCart(state, action) {
       state.cartItems = state.cartItems.filter(
         (item) => item.cartItemId !== action.payload.cartItemId,
       );
-      cogoToast.error("Removed From Cart", { position: "bottom-left" });
+      cogoToast.error("Removed From Cart", { position: "top-center" });
       state.cartTotalPrice = cartTotalPriceCalculator(state.cartItems);
       state.user = action.payload.currentUser;
-      updateCart(state, {}).then((res) => {});
+      updateCart(state, {});
     },
     decreaseQuantity(state, action) {
       const product = action.payload;
@@ -117,7 +129,7 @@ const cartSlice = createSlice({
         state.cartItems = state.cartItems.filter(
           (item) => item.cartItemId !== product.cartItemId,
         );
-        cogoToast.error("Removed From Cart", { position: "bottom-left" });
+        cogoToast.error("Removed From Cart", { position: "top-center" });
       } else {
         state.cartItems = state.cartItems.map((item) =>
           item.cartItemId === product.cartItemId
@@ -125,19 +137,19 @@ const cartSlice = createSlice({
             : item,
         );
         cogoToast.warn("Item Decremented From Cart", {
-          position: "bottom-left",
+          position: "top-center",
         });
       }
       state.cartTotalPrice = cartTotalPriceCalculator(state.cartItems);
       state.user = action.payload.currentUser;
       console.log("state", JSON.stringify(state));
-      updateCart(state, {}).then((res) => {});
+      updateCart(state, {});
     },
     deleteAllFromCart(state, action) {
       state.cartItems = [];
       state.cartTotalPrice = cartTotalPriceCalculator(state.cartItems);
       state.user = action.payload.currentUser;
-      updateCart(state, {}).then((res) => {});
+      updateCart(state, {});
     },
     resetCart: (state) => {
       state.user = {};
@@ -154,17 +166,15 @@ const cartSlice = createSlice({
       state.shippingPrice = action.payload.shipping.price;
       updateCart(state, {
         selectedShippingId: action.payload.shipping._id,
-      }).then((res) => {});
+      });
     },
     updateDiscountPrice: (state, action) => {
       state.discountPrice = action.payload.discountPrice;
-      updateCart(state, { couponId: action.payload.coupon._id }).then(
-        (res) => {},
-      );
+      updateCart(state, { couponId: action.payload.coupon._id });
     },
     setUserInCart: (state, action) => {
       state.user = action.payload.user;
-      updateCart(state, {}).then((res) => {});
+      updateCart(state, {});
     },
   },
 });

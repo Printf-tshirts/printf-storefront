@@ -10,6 +10,7 @@ import { addAddress, selectAddress } from "../../store/slices/address-slice";
 import { FormSelect } from "react-bootstrap";
 import SelectedAddressComponent from "../../components/checkout/selectedAddressComponent";
 import { updateShippingPrice } from "../../store/slices/cart-slice";
+import { verifyCartAPI } from "../../apis/cart.api";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -34,8 +35,21 @@ const Checkout = () => {
       navigate("/login-register");
     }
   }, [currentUser, navigate]);
-  const handleAddAddress = (e) => {
+  const handleAddAddress = async (e) => {
     e.preventDefault();
+    await verifyCartAPI()
+      .then((res) => {
+        console.log("res", res.data.message);
+        if (!res.data.cartVerified) {
+          cogoToast.error(res.data.message, { position: "top-center" });
+          return;
+        }
+      })
+      .catch((err) => {
+        console.log("err", err);
+        cogoToast.error(err.response.data.error, { position: "top-center" });
+        return;
+      });
     if (addNewAddress) {
       const payload = {
         user: currentUser._id,
@@ -52,6 +66,7 @@ const Checkout = () => {
         .then(async (res) => {
           await dispatch(addAddress(res.data.address));
           await dispatch(selectAddress(res.data.address));
+
           navigate("/payment");
         })
         .catch((err) => {
@@ -59,6 +74,10 @@ const Checkout = () => {
           cogoToast.error(err.response.data, { position: "top-center" });
         });
     } else {
+      if (!selectedAddressId) {
+        cogoToast.error("Please select an address", { position: "top-center" });
+        return;
+      }
       navigate("/payment");
     }
   };
