@@ -34,7 +34,6 @@ const Product = () => {
   }, [dispatch, variantHandle, categoryHandle, productCode]);
 
   useEffect(() => {
-    console.log("product", product);
     if (product && product.title) {
       product.variants.forEach((variant) => {
         if (variant.handle === variantHandle) {

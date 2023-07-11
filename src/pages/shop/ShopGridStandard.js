@@ -23,7 +23,7 @@ const ShopGridStandard = () => {
   const [offset, setOffset] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const pageLimit = 12;
-  let { categoryHandle } = useParams();
+  let { categoryHandle, designType } = useParams();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -34,6 +34,7 @@ const ShopGridStandard = () => {
         categoryHandle: categoryHandle,
         skip: 0,
         limit: pageLimit,
+        design_type_handle: designType,
       }),
     ).then(() => {
       setIsLoading(false);
@@ -60,11 +61,12 @@ const ShopGridStandard = () => {
     // if (!sortType && !filterSortType) {
     //   return;
     // }
-    setIsLoading(true);
+    // setIsLoading(true);
     setFilterLoading(true);
     let payload = {
       skip: currentPage * pageLimit - pageLimit,
       limit: pageLimit,
+      design_type_handle: designType,
     };
     if (sortType) {
       payload[sortType] = sortValue;
@@ -73,9 +75,11 @@ const ShopGridStandard = () => {
       }
     } else {
       if (filterSortValue === "priceHighToLow") {
-        payload.priceSort = -1;
-      } else {
-        payload.priceSort = 1;
+        payload.sortBy = "price";
+        payload.priceSort = "desc";
+      } else if (filterSortValue === "priceLowToHigh") {
+        payload.sortBy = "price";
+        payload.priceSort = "asc";
       }
     }
     dispatch(fetchProductsByCategory(payload)).then(() => {

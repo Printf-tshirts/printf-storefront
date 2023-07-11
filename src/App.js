@@ -66,6 +66,10 @@ const App = () => {
               element={<ShopGridStandard />}
             />
             <Route
+              path={process.env.PUBLIC_URL + "/:categoryHandle/:designType"}
+              element={<ShopGridStandard />}
+            />
+            <Route
               path={process.env.PUBLIC_URL + "/search/:query"}
               element={<Search />}
             />
