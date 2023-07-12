@@ -5,21 +5,21 @@ import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import GoogleMap from "../../components/google-map";
 
-const Contact = () => {
+const BulkOrder = () => {
   let { pathname } = useLocation();
 
   return (
     <Fragment>
       <SEO
-        titleTemplate="Contact"
-        description="Contact page of flone react minimalist eCommerce template."
+        titleTemplate="Bulk Order"
+        description="Bulk Order page of flone react minimalist eCommerce template."
       />
       <LayoutOne>
         {/* breadcrumb */}
         <Breadcrumb
           pages={[
             { label: "Home", path: process.env.PUBLIC_URL + "/" },
-            { label: "Contact", path: process.env.PUBLIC_URL + pathname },
+            { label: "Bulk Order", path: process.env.PUBLIC_URL + pathname },
           ]}
         />
         <div className="contact-area pt-100 pb-100">
@@ -140,4 +140,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default BulkOrder;

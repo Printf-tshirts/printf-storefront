@@ -14,9 +14,8 @@ const Home = () => {
   return (
     <Fragment>
       <SEO
-        title={"Home"}
-        titleTemplate="PrintCoder"
-        description="Fashion home of flone react minimalist eCommerce template."
+        title={"Printcoder: Where Style Meets Expression!"}
+        description="Welcome to Printcoder - Your Destination for Trendy Design Printed T-Shirts! Express your passion for travel, food, humor, engineering, and more with our unique collection. Shop now for high-quality, stylish tees that reflect your personality. Get noticed with our eye-catching designs and make a statement with Printcoder! Free shipping on orders over ₹999. Join our fashion revolution today!"
       />
       <LayoutOne
         headerContainerClass="container-fluid"
@@ -26,7 +25,7 @@ const Home = () => {
         {/* feature text */}
         <FeatureIcon spaceTopClass="pt-100" spaceBottomClass="pb-60" />
         {/* video popup */}
-        <VideoPopup spaceBottomClass="pb-100" />
+        {/* <VideoPopup spaceBottomClass="pb-100" /> */}
         {/* product slider */}
         <NewProductGrid categoryHandle="tshirts" limit={10} />
         {/* <ProductSliderFour categoryHandle="tshirts" /> */}

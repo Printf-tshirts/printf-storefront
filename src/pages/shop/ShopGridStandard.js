@@ -40,7 +40,7 @@ const ShopGridStandard = () => {
       setIsLoading(false);
       setFilterLoading(false);
     });
-  }, [categoryHandle, dispatch]);
+  }, [categoryHandle, designType, dispatch]);
   let { pathname } = useLocation();
 
   const getLayout = (layout) => {

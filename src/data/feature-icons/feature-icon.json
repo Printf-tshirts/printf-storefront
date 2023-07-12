@@ -3,18 +3,18 @@
     "id": 1,
     "image": "/assets/img/icon-img/support-1.png",
     "title": "Free Shipping",
-    "subtitle": "Free shipping on order above 1000"
+    "subtitle": "Free shipping on order above ₹999"
   },
   {
     "id": 2,
     "image": "/assets/img/icon-img/support-2.png",
-    "title": "Support 24/7",
-    "subtitle": "Free shipping on all order"
+    "title": "Trendy Designs",
+    "subtitle": "Select from wide variety of designs"
   },
   {
     "id": 3,
     "image": "/assets/img/icon-img/support-4.png",
-    "title": "Order Discount",
-    "subtitle": "Free shipping on all order"
+    "title": "Mega Discount",
+    "subtitle": "Introductory offers site wide"
   }
 ]

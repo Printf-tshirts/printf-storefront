@@ -10,6 +10,7 @@ import { SingleOrder } from "./pages/other/SingleOrder";
 import { Terms } from "./pages/other/Terms";
 import { Privacy } from "./pages/other/Privacy";
 import Search from "./pages/other/Search";
+import { Return } from "./pages/other/Return";
 
 // home pages
 const Home = lazy(() => import("./pages/home/Home"));
@@ -23,6 +24,7 @@ const Product = lazy(() => import("./pages/shop-product/Product"));
 // other pages
 const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
+const BulkOrder = lazy(() => import("./pages/other/BulkOrder"));
 const MyAccount = lazy(() => import("./pages/other/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
 
@@ -83,6 +85,10 @@ const App = () => {
               element={<Contact />}
             />
             <Route
+              path={process.env.PUBLIC_URL + "/bulk-order"}
+              element={<BulkOrder />}
+            />
+            <Route
               path={process.env.PUBLIC_URL + "/my-account"}
               element={<MyAccount />}
             />
@@ -107,6 +113,7 @@ const App = () => {
             <Route path="/store" element={<Store />} />
             <Route path="/terms-and-conditions" element={<Terms />} />
             <Route path="/privacy-policy" element={<Privacy />} />
+            <Route path="/return-policy" element={<Return />} />
 
             <Route path="*" element={<NotFound />} />
             <Route path="/404" element={<NotFound />} />

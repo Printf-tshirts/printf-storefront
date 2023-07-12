@@ -410,15 +410,6 @@ const ProductDescriptionInfo = ({
             <img width={"30"} src="/assets/custom/fast-delivery.png" alt="" />
             <p className="mx-3 bold-text">Get it by Mon, Jul 17</p>
           </div>
-          <div className="d-flex align-items-center my-3">
-            <img width={"30"} src="/assets/custom/fast-delivery.png" alt="" />
-            <p className="mx-3 bold-text">Pay on delivery available</p>
-          </div>
-          <div className="d-flex align-items-center my-3">
-            <img width={"30"} src="/assets/custom/fast-delivery.png" alt="" />
-            <p className="mx-3 bold-text">Easy 14 days return available</p>
-          </div>
-          <p className="my-3">100% Original Products</p>
           <div className="my-3">
             <p className="bold-text">BEST OFFERS </p>
             <p>Best Price: Rs. 503</p>
@@ -427,30 +418,6 @@ const ProductDescriptionInfo = ({
               <li>Applicable on: Orders above Rs. 1499</li>
               <li>Coupon code: MFC10</li>
             </ul>
-            <div className="default-link" style={{ cursor: "pointer" }}>
-              <strong>View Eligible Products</strong>
-            </div>
-          </div>
-          <div className="my-3">
-            <p className="bold-text">
-              Flat Rs 300 Cashback for select users Or UpTo Rs 500 Cashback on
-              CRED pay UPI transactions.
-            </p>
-            <ul>
-              <li>Min Spend Rs 1,000. Available only on Android Devices.</li>
-            </ul>
-            <div className="default-link" style={{ cursor: "pointer" }}>
-              <strong>Terms & Condition</strong>
-            </div>
-          </div>
-          <div className="my-3">
-            <p className="bold-text">EMI option available</p>
-            <ul>
-              <li>EMI starting from Rs.27/month</li>
-            </ul>
-            <div className="default-link" style={{ cursor: "pointer" }}>
-              <strong>View Plan</strong>
-            </div>
           </div>
         </div>
         <hr />

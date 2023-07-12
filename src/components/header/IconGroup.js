@@ -46,19 +46,22 @@ const IconGroup = ({ iconWhiteClass }) => {
   };
 
   return (
-    <div className={clsx("header-right-wrap", iconWhiteClass)}>
+    <div className={clsx("header-right-wrap ", iconWhiteClass)}>
       <div className="same-style header-search d-none d-lg-block">
-        <button className="search-active" onClick={(e) => handleClick(e)}>
+        {/* <button className="search-active" onClick={(e) => handleClick(e)}>
           <i className="pe-7s-search" />
-        </button>
-        <div className="search-content">
+        </button> */}
+        <div className="search-content active">
           <Form onFinish={handleSearch}>
             <Form.Item name={"searchTerm"}>
-              <Input type="text" placeholder="Search" />
+              <Input
+                type="text"
+                placeholder="Search for a product, design and more"
+              />
             </Form.Item>
-            <button className="button-search">
+            {/* <button className="button-search">
               <i className="pe-7s-search" />
-            </button>
+            </button> */}
           </Form>
         </div>
       </div>

@@ -60,6 +60,11 @@ const FooterOne = ({
                       Contact
                     </Link>
                   </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/bulk-order"}>
+                      Bulk Order
+                    </Link>
+                  </li>
                   {/* <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>
                       Orders tracking
@@ -92,6 +97,11 @@ const FooterOne = ({
                   <li>
                     <Link to={process.env.PUBLIC_URL + "/terms-and-conditions"}>
                       Terms & Conditions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/return-policy"}>
+                      Return Policy
                     </Link>
                   </li>
                   {/* <li>

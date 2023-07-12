@@ -25,11 +25,15 @@ const VideoPopup = ({ spaceBottomClass }) => {
           <div className="col-lg-6">
             <div className="video-popup__content">
               <h2 className="title mb-30">
-                Supro is the modern luxury shopping destination
+                Printcoder: Where Style Meets Expression!
               </h2>
               <p className="text mb-30">
-                Lorem ipsum dolor sit amet, consectetb adipisicing elit sed do
-                eiusmod tempor incididunt.
+                Your Destination for Trendy Design Printed T-Shirts! Express
+                your passion for travel, food, humor, engineering, and more with
+                our unique collection. Shop now for high-quality, stylish tees
+                that reflect your personality. Get noticed with our eye-catching
+                designs and make a statement with Printcoder! Free shipping on
+                orders over ₹999. Join our fashion revolution today!
               </p>
               <div className="link mb-30">
                 <Link to={process.env.PUBLIC_URL + "/about"}>
@@ -39,7 +43,7 @@ const VideoPopup = ({ spaceBottomClass }) => {
               <ModalVideo
                 channel="youtube"
                 isOpen={modalStatus}
-                videoId="feOScd2HdiU"
+                // videoId="feOScd2HdiU"
                 onClose={() => isOpen(false)}
               />
               <button onClick={() => isOpen(true)}>

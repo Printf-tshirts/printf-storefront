@@ -16,9 +16,9 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
       <nav>
         <ul>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/shop"}>
+            <Link to={process.env.PUBLIC_URL + "/tshirts"}>
               {" "}
-              {t("shop")}
+              {t("T-Shirts")}
               {sidebarMenu ? (
                 <span>
                   <i className="fa fa-angle-right"></i>
@@ -30,24 +30,61 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
             <ul className="mega-menu">
               <li>
                 <ul>
-                  <li className="mega-menu-title">
+                  {/* <li className="mega-menu-title">
                     <Link to={process.env.PUBLIC_URL + "/men"}>{t("MEN")}</Link>
+                  </li> */}
+                  <li className="">
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/food"}>
+                      {t("food")}
+                    </Link>
                   </li>
                   <li className="">
-                    <Link to={process.env.PUBLIC_URL + "/men"}>{t("men")}</Link>
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/sports"}>
+                      {t("sports")}
+                    </Link>
+                  </li>
+                  <li className="">
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/gamer"}>
+                      {t("gamer")}
+                    </Link>
+                  </li>
+                  <li className="">
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/anime"}>
+                      {t("anime")}
+                    </Link>
+                  </li>
+                  <li className="">
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/coder"}>
+                      {t("coder")}
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li>
                 <ul>
-                  <li className="mega-menu-title">
-                    <Link to={process.env.PUBLIC_URL + "/women"}>
+                  {/* <li className="mega-menu-title">
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/women"}>
                       {t("WOMEN")}
+                    </Link>
+                  </li> */}
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/travel"}>
+                      {t("travel")}
                     </Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "/women"}>
-                      {t("women")}
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/abstract"}>
+                      {t("abstract")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/astronomy"}>
+                      {t("astronomy")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/tshirts/graphi-tees"}>
+                      {t("graphi-tees")}
                     </Link>
                   </li>
                 </ul>
@@ -69,11 +106,11 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
               </li>
             </ul>
           </li>
-          <li>
+          {/* <li>
             <Link to={process.env.PUBLIC_URL + "/tshirts"}>
               {t("T-Shirts")}
             </Link>
-          </li>
+          </li> */}
           {/* <li>
             <Link to={process.env.PUBLIC_URL + "/contact"}>
               {t("contact_us")}

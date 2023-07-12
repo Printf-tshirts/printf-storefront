@@ -8,8 +8,8 @@ const NewProductGrid = ({ categoryHandle, limit }) => {
     <div className="product-area pb-60 section-padding-1">
       <div className="container-fluid">
         <SectionTitleTwo
-          titleText="New Arrival"
-          subTitleText="Lorem ipsum dolor sit amet conse ctetu."
+          titleText="Trendy Designs"
+          subTitleText="Get noticed with our eye-catching designs and make a statement with Printcoder!"
           positionClass="text-center"
           spaceClass="mb-60"
         />

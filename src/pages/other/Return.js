@@ -10,14 +10,14 @@ import FunFactOne from "../../wrappers/fun-fact/FunFactOne";
 import TeamMemberOne from "../../wrappers/team-member/TeamMemberOne";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
 
-export const Privacy = () => {
+export const Return = () => {
   let { pathname } = useLocation();
 
   return (
     <Fragment>
       <SEO
-        titleTemplate="Privacy Policy"
-        description="Privacy Policy page of flone react minimalist eCommerce template."
+        titleTemplate="Return Policy"
+        description="Return Policy page of flone react minimalist eCommerce template."
       />
       <LayoutOne>
         {/* breadcrumb */}
@@ -25,7 +25,7 @@ export const Privacy = () => {
           pages={[
             { label: "Home", path: process.env.PUBLIC_URL + "/" },
             {
-              label: "Privacy Policy",
+              label: "Return Policy",
               path: process.env.PUBLIC_URL + pathname,
             },
           ]}
