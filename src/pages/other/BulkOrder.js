@@ -4,9 +4,27 @@ import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import GoogleMap from "../../components/google-map";
+import { Form, Input } from "antd";
+import { useSelector } from "react-redux";
+import { addBulkOrderAPI } from "../../apis/bulkOrders.api";
+import cogoToast from "cogo-toast";
 
 const BulkOrder = () => {
   let { pathname } = useLocation();
+  const { currentUser } = useSelector((state) => state.user);
+  const handleBulkOrder = (values) => {
+    if (currentUser) {
+      values.user = currentUser._id;
+    }
+    addBulkOrderAPI(values)
+      .then((res) => {
+        cogoToast.success(res.data.message, { position: "top-center" });
+      })
+      .catch((err) => {
+        console.log(err);
+        cogoToast.error("Something went wrong!", { position: "top-center" });
+      });
+  };
 
   return (
     <Fragment>
@@ -102,33 +120,66 @@ const BulkOrder = () => {
                   <div className="contact-title mb-30">
                     <h2>Get In Touch</h2>
                   </div>
-                  <form className="contact-form-style">
+                  <Form
+                    onFinish={handleBulkOrder}
+                    className="contact-form-style">
                     <div className="row">
                       <div className="col-lg-6">
-                        <input name="name" placeholder="Name*" type="text" />
+                        <Form.Item
+                          name="name"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your name!",
+                            },
+                          ]}>
+                          <Input placeholder="Name*" type="text" />
+                        </Form.Item>
                       </div>
                       <div className="col-lg-6">
-                        <input name="email" placeholder="Email*" type="email" />
+                        <Form.Item
+                          name="email"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your email!",
+                            },
+                          ]}>
+                          <Input placeholder="Email*" type="email" />
+                        </Form.Item>
                       </div>
                       <div className="col-lg-12">
-                        <input
-                          name="subject"
-                          placeholder="Subject*"
-                          type="text"
-                        />
+                        <Form.Item
+                          name="number"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your number!",
+                            },
+                          ]}>
+                          <Input placeholder="Number*" type="number" />
+                        </Form.Item>
                       </div>
                       <div className="col-lg-12">
-                        <textarea
+                        <Form.Item
                           name="message"
-                          placeholder="Your Message*"
-                          defaultValue={""}
-                        />
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your message!",
+                            },
+                          ]}>
+                          <Input.TextArea
+                            placeholder="Your Message*"
+                            defaultValue={""}
+                          />
+                        </Form.Item>
                         <button className="submit" type="submit">
                           SEND
                         </button>
                       </div>
                     </div>
-                  </form>
+                  </Form>
                   <p className="form-message" />
                 </div>
               </div>

@@ -5,13 +5,17 @@ import { getDiscountPrice } from "../../helpers/product";
 import ProductDescriptionInfo from "../../components/product/ProductDescriptionInfo";
 import ProductImageGallerySticky from "../../components/product/ProductImageGallerySticky";
 
-const ProductImageDescriptionSticky = ({ spaceTopClass, spaceBottomClass, product }) => {
+const ProductImageDescriptionSticky = ({
+  spaceTopClass,
+  spaceBottomClass,
+  product,
+}) => {
   const currency = useSelector((state) => state.currency);
-  const { cartItems } = useSelector((state) => state.cart);
+  const { items } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
-  const wishlistItem = wishlistItems.find(item => item.id === product.id);
-  const compareItem = compareItems.find(item => item.id === product.id);
+  const wishlistItem = wishlistItems.find((item) => item.id === product.id);
+  const compareItem = compareItems.find((item) => item.id === product.id);
 
   const discountedPrice = getDiscountPrice(product.price, product.discount);
   const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
@@ -28,9 +32,7 @@ const ProductImageDescriptionSticky = ({ spaceTopClass, spaceBottomClass, produc
             <ProductImageGallerySticky product={product} />
           </div>
           <div className="col-lg-6 col-md-6">
-            <div
-              style={{ position: "sticky", top: "75px" }}
-            >
+            <div style={{ position: "sticky", top: "75px" }}>
               {/* product description info */}
               <ProductDescriptionInfo
                 product={product}
@@ -38,7 +40,7 @@ const ProductImageDescriptionSticky = ({ spaceTopClass, spaceBottomClass, produc
                 currency={currency}
                 finalDiscountedPrice={finalDiscountedPrice}
                 finalProductPrice={finalProductPrice}
-                cartItems={cartItems}
+                items={items}
                 wishlistItem={wishlistItem}
                 compareItem={compareItem}
               />

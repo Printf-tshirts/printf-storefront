@@ -13,11 +13,13 @@ export const updateCartAPI = ({ cart }) => {
   return axios.post(`${BACKEND_URL}/cart/update-cart`, { cart });
 };
 
-export const verifyCartAPI = () => {
+export const verifyCartAPI = ({ cartId }) => {
   const token = localStorage.getItem("token");
   return axios.post(
     `${BACKEND_URL}/cart/verify-cart`,
-    {},
+    {
+      cartId,
+    },
     {
       headers: {
         authorization: `Bearer ${token}`,

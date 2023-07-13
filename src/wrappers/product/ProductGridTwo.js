@@ -42,7 +42,7 @@ const ProductGridTwo = ({
                   colorClass={colorClass}
                   product={product}
                   currency={currency}
-                  // cartItem={cartItems.find(
+                  // cartItem={items.find(
                   //   (cartItem) => cartItem.id === product.id,
                   // )}
                   // wishlistItem={wishlistItems.find(

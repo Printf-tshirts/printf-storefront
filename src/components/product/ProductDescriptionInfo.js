@@ -15,7 +15,7 @@ const ProductDescriptionInfo = ({
   currency,
   finalDiscountedPrice,
   finalProductPrice,
-  cartItems,
+  items,
   currentUser,
 }) => {
   const navigate = useNavigate();
@@ -104,7 +104,7 @@ const ProductDescriptionInfo = ({
     );
   }, [selectedProductSize, variant.sizes]);
   const productCartQty = getProductCartQuantity(
-    cartItems,
+    items,
     product,
     selectedProductColor,
     selectedProductSize,
@@ -474,7 +474,7 @@ const ProductDescriptionInfo = ({
 };
 
 ProductDescriptionInfo.propTypes = {
-  cartItems: PropTypes.array,
+  items: PropTypes.array,
   compareItem: PropTypes.shape({}),
   currency: PropTypes.shape({}),
   discountedPrice: PropTypes.number,

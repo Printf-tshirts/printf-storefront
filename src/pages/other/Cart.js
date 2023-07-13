@@ -10,11 +10,12 @@ import {
   deleteFromCart,
   updateDiscountPrice,
 } from "../../store/slices/cart-slice";
-import { cartItemStock } from "../../helpers/product";
+import { itemstock } from "../../helpers/product";
 import { Form, Input } from "antd";
 import { getCouponByCodeAPI } from "../../apis/coupons.api";
 import cogoToast from "cogo-toast";
 import { selectCoupon } from "../../store/slices/coupon-slice";
+import { updateCart } from "../../store/actions/cart-action";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -24,9 +25,10 @@ const Cart = () => {
 
   const currency = useSelector((state) => state.currency);
   const { currentUser } = useSelector((state) => state.user);
-  const { cartItems, cartTotalPrice, discountPrice } = useSelector(
+  const { items, cartTotalPrice, discountPrice, validCart } = useSelector(
     (state) => state.cart,
   );
+  const cart = useSelector((state) => state.cart);
   const { selectedCoupon } = useSelector((state) => state.coupon);
   const handleApplyCoupon = async (values) => {
     if (!currentUser?._id) {
@@ -100,8 +102,13 @@ const Cart = () => {
     );
   };
   useEffect(() => {
+    dispatch(updateCart()).then((res) => {
+      console.log(res);
+    });
+  }, [dispatch, cart]);
+  useEffect(() => {
     handleCouponCalculation();
-  }, [cartTotalPrice, selectedCoupon, cartItems]);
+  }, [cartTotalPrice, selectedCoupon, items]);
   const removeCoupon = () => {
     dispatch(updateDiscountPrice({ discountPrice: 0, coupon: { _id: null } }));
     dispatch(selectCoupon(null));
@@ -123,7 +130,7 @@ const Cart = () => {
         />
         <div className="cart-main-area pt-90 pb-100">
           <div className="container">
-            {cartItems && cartItems.length >= 1 ? (
+            {items && items.length >= 1 ? (
               <Fragment>
                 <h3 className="cart-page-title">Your cart items</h3>
                 <div className="row">
@@ -141,7 +148,7 @@ const Cart = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {cartItems.map((cartItem, key) => {
+                          {items.map((cartItem, key) => {
                             const variant = cartItem.variant;
                             const discountedPrice = variant.price;
                             const finalProductPrice = (
@@ -236,7 +243,7 @@ const Cart = () => {
                                         cartItem !== undefined &&
                                         cartItem.quantity &&
                                         cartItem.quantity >=
-                                          cartItemStock(cartItem, cartItem.size)
+                                          itemstock(cartItem, cartItem.size)
                                       }>
                                       +
                                     </button>
@@ -403,14 +410,26 @@ const Cart = () => {
                           {parseInt(cartTotalPrice) - parseInt(discountPrice)}
                         </span>
                       </h4>
-                      <Link
-                        to={
-                          currentUser
-                            ? `${process.env.PUBLIC_URL}/checkout`
-                            : `/login-register`
-                        }>
-                        Proceed to Checkout
-                      </Link>
+                      {validCart ? (
+                        <Link
+                          to={
+                            currentUser
+                              ? `${process.env.PUBLIC_URL}/checkout`
+                              : `/login-register`
+                          }>
+                          Proceed to Checkout
+                        </Link>
+                      ) : (
+                        <>
+                          <Link
+                            style={{
+                              cursor: "not-allowed",
+                              backgroundColor: "#ccc",
+                            }}>
+                            Proceed to Checkout
+                          </Link>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

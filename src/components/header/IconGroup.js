@@ -26,7 +26,7 @@ const IconGroup = ({ iconWhiteClass }) => {
   const { currentUser } = useSelector((state) => state.user);
   const { compareItems } = useSelector((state) => state.compare);
   const { wishlistItems } = useSelector((state) => state.wishlist);
-  const { cartItems } = useSelector((state) => state.cart);
+  const { items } = useSelector((state) => state.cart);
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("sessionId");
@@ -131,7 +131,7 @@ const IconGroup = ({ iconWhiteClass }) => {
         <button className="icon-cart" onClick={(e) => handleClick(e)}>
           <i className="pe-7s-shopbag" />
           <span className="count-style">
-            {cartItems && cartItems.length ? cartItems.length : 0}
+            {items && items.length ? items.length : 0}
           </span>
         </button>
         {/* menu cart */}
@@ -141,7 +141,7 @@ const IconGroup = ({ iconWhiteClass }) => {
         <Link className="icon-cart" to={process.env.PUBLIC_URL + "/cart"}>
           <i className="pe-7s-shopbag" />
           <span className="count-style">
-            {cartItems && cartItems.length ? cartItems.length : 0}
+            {items && items.length ? items.length : 0}
           </span>
         </Link>
       </div>

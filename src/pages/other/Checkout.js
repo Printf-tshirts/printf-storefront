@@ -11,6 +11,7 @@ import { FormSelect } from "react-bootstrap";
 import SelectedAddressComponent from "../../components/checkout/selectedAddressComponent";
 import { updateShippingPrice } from "../../store/slices/cart-slice";
 import { verifyCartAPI } from "../../apis/cart.api";
+import { updateCart } from "../../store/actions/cart-action";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -21,13 +22,15 @@ const Checkout = () => {
   const currency = useSelector((state) => state.currency);
   const { currentUser } = useSelector((state) => state.user);
   const {
-    cartItems,
+    items,
     cartTotalPrice,
     shippingPrice,
     shippingAdded,
     discountPrice,
+    validCart,
   } = useSelector((state) => state.cart);
   const { selectedCoupon } = useSelector((state) => state.coupon);
+  const cart = useSelector((state) => state.cart);
   const { addresses, selectedAddress } = useSelector((state) => state.address);
   const { selectedShipping } = useSelector((state) => state.shipping);
   useEffect(() => {
@@ -37,19 +40,6 @@ const Checkout = () => {
   }, [currentUser, navigate]);
   const handleAddAddress = async (e) => {
     e.preventDefault();
-    await verifyCartAPI()
-      .then((res) => {
-        console.log("res", res.data.message);
-        if (!res.data.cartVerified) {
-          cogoToast.error(res.data.message, { position: "top-center" });
-          return;
-        }
-      })
-      .catch((err) => {
-        console.log("err", err);
-        cogoToast.error(err.response.data.error, { position: "top-center" });
-        return;
-      });
     if (addNewAddress) {
       const payload = {
         user: currentUser._id,
@@ -110,7 +100,11 @@ const Checkout = () => {
       dispatch(selectAddress(addresses[0]));
     }
   }, [selectedAddress, addresses, dispatch]);
-
+  useEffect(() => {
+    dispatch(updateCart()).then((res) => {
+      console.log(res);
+    });
+  }, [dispatch, cart]);
   return (
     <Fragment>
       <SEO
@@ -127,7 +121,7 @@ const Checkout = () => {
         />
         <div className="checkout-area pt-95 pb-100">
           <div className="container">
-            {cartItems && cartItems.length >= 1 ? (
+            {items && items.length >= 1 ? (
               <form onSubmit={handleAddAddress}>
                 <div className="row">
                   <div className="col-lg-7">
@@ -264,7 +258,7 @@ const Checkout = () => {
                           </div>
                           <div className="your-order-middle">
                             <ul>
-                              {cartItems.map((cartItem, key) => {
+                              {items.map((cartItem, key) => {
                                 const variantPrice = cartItem.variant.price;
                                 const finalProductPrice = (
                                   cartItem.variant.compare_at_price *
@@ -340,7 +334,10 @@ const Checkout = () => {
                         <div className="payment-method"></div>
                       </div>
                       <div className="place-order mt-25">
-                        <button type="submit" className="btn-hover">
+                        <button
+                          type="submit"
+                          disabled={!validCart}
+                          className="btn-hover">
                           Place Order
                         </button>
                       </div>

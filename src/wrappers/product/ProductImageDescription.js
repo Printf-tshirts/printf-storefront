@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 import ProductImageGallery from "../../components/product/ProductImageGallery";
 import ProductDescriptionInfo from "../../components/product/ProductDescriptionInfo";
@@ -11,8 +11,9 @@ const ProductImageDescription = ({
   variant,
 }) => {
   const currency = useSelector((state) => state.currency);
-  const { cartItems } = useSelector((state) => state.cart);
+  const { items } = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
+
   const discountedPrice = variant.compare_at_price
     ? variant.compare_at_price - variant.price
     : null;
@@ -46,7 +47,7 @@ const ProductImageDescription = ({
               currency={currency}
               finalDiscountedPrice={finalDiscountedPrice}
               finalProductPrice={finalProductPrice}
-              cartItems={cartItems}
+              items={items}
               currentUser={currentUser}
             />
           </div>

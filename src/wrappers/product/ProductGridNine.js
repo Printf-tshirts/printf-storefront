@@ -35,7 +35,7 @@ const ProductGridNine = ({
 }) => {
   const products = useSelector((state) => state.product.categoryProducts);
   const currency = useSelector((state) => state.currency);
-  // const { cartItems } = useSelector((state) => state.cart);
+  // const { items } = useSelector((state) => state.cart);
   // const { wishlistItems } = useSelector((state) => state.wishlist);
   // const { compareItems } = useSelector((state) => state.compare);
   const dispatch = useDispatch();
@@ -63,7 +63,7 @@ const ProductGridNine = ({
                   colorClass={colorClass}
                   product={product}
                   currency={currency}
-                  // cartItem={cartItems.find(
+                  // cartItem={items.find(
                   //   (cartItem) => cartItem.id === product._id,
                   // )}
                   // wishlistItem={wishlistItems.find(

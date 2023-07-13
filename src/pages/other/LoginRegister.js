@@ -30,14 +30,14 @@ const LoginRegister = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
-  const { cartItems } = useSelector((state) => state.cart);
+  const { items } = useSelector((state) => state.cart);
   useEffect(() => {
-    if (currentUser && cartItems.length > 0) {
+    if (currentUser && items.length > 0) {
       navigate("/cart");
     } else if (currentUser) {
       navigate("/");
     }
-  }, [currentUser, cartItems, navigate]);
+  }, [currentUser, items, navigate]);
   let { pathname } = useLocation();
   const handleLogin = (e) => {
     e.preventDefault();
@@ -54,7 +54,7 @@ const LoginRegister = () => {
               dispatch(
                 setCart({
                   user: res.data.cart.user,
-                  cartItems: res.data.cart.items,
+                  items: res.data.cart.items,
                   cartTotalPrice: res.data.cart.totalPrice,
                 }),
               );
@@ -74,7 +74,7 @@ const LoginRegister = () => {
             dispatch(selectShipping(res.data.shippings[0]));
           });
           await dispatch(setCurrentUser(res.data.user));
-          await dispatch(setUserInCart({ user: res.data.user._id }));
+          await dispatch(setUserInCart({ user: res.data.user }));
           cogoToast.success("Login Successful", { position: "top-center" });
         });
       })

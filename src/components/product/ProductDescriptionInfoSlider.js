@@ -14,7 +14,7 @@ const ProductDescriptionInfoSlider = ({
   currency,
   finalDiscountedPrice,
   finalProductPrice,
-  cartItems,
+  items,
   wishlistItem,
   compareItem,
 }) => {
@@ -31,7 +31,7 @@ const ProductDescriptionInfoSlider = ({
   const [quantityCount, setQuantityCount] = useState(1);
 
   const productCartQty = getProductCartQuantity(
-    cartItems,
+    items,
     product,
     selectedProductColor,
     selectedProductSize,
@@ -297,7 +297,7 @@ const ProductDescriptionInfoSlider = ({
 };
 
 ProductDescriptionInfoSlider.propTypes = {
-  cartItems: PropTypes.array,
+  items: PropTypes.array,
   compareItem: PropTypes.shape({}),
   currency: PropTypes.shape({}),
   discountedPrice: PropTypes.number,

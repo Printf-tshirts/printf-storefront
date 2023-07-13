@@ -7,15 +7,15 @@ const MenuCart = () => {
   const dispatch = useDispatch();
   const currency = useSelector((state) => state.currency);
   const { currentUser } = useSelector((state) => state.user);
-  const { cartItems } = useSelector((state) => state.cart);
+  const { items } = useSelector((state) => state.cart);
   let cartTotalPrice = 0;
 
   return (
     <div className="shopping-cart-content">
-      {cartItems && cartItems.length > 0 ? (
+      {items && items.length > 0 ? (
         <Fragment>
           <ul>
-            {cartItems.map((item) => {
+            {items.map((item) => {
               const variant = item.variant;
               const discountedPrice = variant.price;
               const finalProductPrice = (

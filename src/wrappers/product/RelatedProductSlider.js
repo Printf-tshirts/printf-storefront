@@ -32,7 +32,7 @@ const settings = {
 const RelatedProductSlider = ({ spaceBottomClass, category }) => {
   const prods = useSelector((state) => state.product.categoryProducts);
   const currency = useSelector((state) => state.currency);
-  const { cartItems } = useSelector((state) => state.cart);
+  const { items } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -63,7 +63,7 @@ const RelatedProductSlider = ({ spaceBottomClass, category }) => {
                       product={product}
                       variant={product.variants[0]}
                       currency={currency}
-                      cartItem={cartItems.find(
+                      cartItem={items.find(
                         (cartItem) => cartItem.id === product.id,
                       )}
                       // wishlistItem={wishlistItems.find(

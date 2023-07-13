@@ -10,6 +10,7 @@ import ProductImageDescription from "../../wrappers/product/ProductImageDescript
 import { fetchProductByVariantHandle } from "../../store/actions/product-actions";
 import { Loader } from "../../components/loader";
 import { setSelectedVariant } from "../../store/slices/product-slice";
+import { updateCart } from "../../store/actions/cart-action";
 
 const Product = () => {
   let { pathname } = useLocation();
@@ -19,6 +20,7 @@ const Product = () => {
   const selectedVariant = useSelector((state) => state.product.selectedVariant);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
+  const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
     setIsLoading(true);
@@ -29,10 +31,12 @@ const Product = () => {
         productCode,
       }),
     ).then(() => {
-      setIsLoading(false);
+      dispatch(updateCart()).then((res) => {
+        console.log(res);
+        setIsLoading(false);
+      });
     });
-  }, [dispatch, variantHandle, categoryHandle, productCode]);
-
+  }, [dispatch, variantHandle, categoryHandle, productCode, cart]);
   useEffect(() => {
     if (product && product.title) {
       product.variants.forEach((variant) => {

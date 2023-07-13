@@ -33,15 +33,15 @@ export const getDiscountPrice = (price, discount) => {
 };
 
 // get product cart quantity
-export const getProductCartQuantity = (cartItems, product, color, size) => {
-  let productInCart = cartItems.find(
+export const getProductCartQuantity = (items, product, color, size) => {
+  let productInCart = items.find(
     (single) =>
       single.variant._id === product._id &&
       (single.variant.color._id ? single.variant.color._id === color : true) &&
       (single.size ? single.size === size : true),
   );
-  if (cartItems.length >= 1 && productInCart) {
-    return cartItems.find(
+  if (items.length >= 1 && productInCart) {
+    return items.find(
       (single) =>
         single.variant._id === product._id &&
         single.variant.color._id === color &&
@@ -52,7 +52,7 @@ export const getProductCartQuantity = (cartItems, product, color, size) => {
   }
 };
 
-export const cartItemStock = (item, size) => {
+export const itemstock = (item, size) => {
   return item.variant.sizes.filter((single) => single.sizeOption === size)[0]
     .inventory;
 };

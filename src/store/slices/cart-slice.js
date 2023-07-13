@@ -1,53 +1,23 @@
 import { v4 as uuidv4 } from "uuid";
 import cogoToast from "cogo-toast";
-import { updateCartAPI } from "../../apis/cart.api";
+import { updateCartAPI, verifyCartAPI } from "../../apis/cart.api";
+import { updateCart } from "../actions/cart-action";
 const { createSlice } = require("@reduxjs/toolkit");
 
-const cartTotalPriceCalculator = (cartItems) => {
-  return cartItems.reduce((total, item) => {
+const cartTotalPriceCalculator = (items) => {
+  return items.reduce((total, item) => {
     const variant = item.variant;
 
     return total + variant.price * item.quantity;
   }, 0);
 };
-const updateCart = async (state, { selectedShippingId, couponId }) => {
-  let cart = {
-    user: state.user ? state.user : null,
-    session: localStorage.getItem("sessionId"),
-    shipping: selectedShippingId,
-    coupon: couponId,
-    items: state.cartItems.map((item) => {
-      return {
-        variant: item.variant._id,
-        quantity: item.quantity,
-        size: item.size,
-        cartItemId: item.cartItemId,
-      };
-    }),
-    totalPrice: state.cartTotalPrice,
-    shippingPrice: state.shippingPrice,
-    discountPrice: state.discountPrice,
-    finalPrice:
-      state.cartTotalPrice + state.shippingPrice - state.discountPrice,
-  };
-  if (!selectedShippingId) {
-    delete cart.shipping;
-  }
-  if (!couponId) {
-    delete cart.coupon;
-  }
-  return await updateCartAPI({ cart })
-    .then((res) => {})
-    .catch((err) => {
-      console.log(err);
-      cogoToast.error(err?.response?.data?.error, { position: "top-center" });
-    });
-};
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
+    _id: null,
     user: {},
-    cartItems: [],
+    items: [],
+    validCart: true,
     cartTotalPrice: 0,
     shippingPrice: 0,
     discountPrice: 0,
@@ -57,14 +27,14 @@ const cartSlice = createSlice({
       const variant = action.payload.variant;
       const quantity = action.payload.quantity;
       const size = action.payload.size;
-      const cartItem = state.cartItems.find(
+      const cartItem = state.items.find(
         (item) =>
           item.variant._id === variant._id &&
           variant.color._id === item.variant.color._id &&
           size === item.size,
       );
       if (!cartItem) {
-        state.cartItems.push({
+        state.items.push({
           variant: variant,
           quantity: quantity ? quantity : 1,
           size: size,
@@ -75,8 +45,8 @@ const cartSlice = createSlice({
         (cartItem.variant.color._id !== variant.color._id ||
           cartItem.size !== size)
       ) {
-        state.cartItems = [
-          ...state.cartItems,
+        state.items = [
+          ...state.items,
           {
             variant: variant,
             quantity: quantity ? quantity : 1,
@@ -85,7 +55,7 @@ const cartSlice = createSlice({
           },
         ];
       } else {
-        state.cartItems = state.cartItems.map((item) => {
+        state.items = state.items.map((item) => {
           if (item.cartItemId === cartItem.cartItemId) {
             let minQuantity = Math.min(
               quantity ? item.quantity + quantity : item.quantity + 1,
@@ -106,32 +76,32 @@ const cartSlice = createSlice({
         });
       }
       cogoToast.success("Added To Cart", { position: "top-center" });
-      state.cartTotalPrice = cartTotalPriceCalculator(state.cartItems);
+      state.cartTotalPrice = cartTotalPriceCalculator(state.items);
       state.user = action.payload.currentUser;
       if (!state.user) {
         if (!localStorage.getItem("sessionId"))
           localStorage.setItem("sessionId", uuidv4());
       }
-      updateCart(state, {});
+      updateCart();
     },
     deleteFromCart(state, action) {
-      state.cartItems = state.cartItems.filter(
+      state.items = state.items.filter(
         (item) => item.cartItemId !== action.payload.cartItemId,
       );
       cogoToast.error("Removed From Cart", { position: "top-center" });
-      state.cartTotalPrice = cartTotalPriceCalculator(state.cartItems);
+      state.cartTotalPrice = cartTotalPriceCalculator(state.items);
       state.user = action.payload.currentUser;
-      updateCart(state, {});
+      updateCart();
     },
     decreaseQuantity(state, action) {
       const product = action.payload;
       if (product.quantity === 1) {
-        state.cartItems = state.cartItems.filter(
+        state.items = state.items.filter(
           (item) => item.cartItemId !== product.cartItemId,
         );
         cogoToast.error("Removed From Cart", { position: "top-center" });
       } else {
-        state.cartItems = state.cartItems.map((item) =>
+        state.items = state.items.map((item) =>
           item.cartItemId === product.cartItemId
             ? { ...item, quantity: item.quantity - 1 }
             : item,
@@ -140,41 +110,47 @@ const cartSlice = createSlice({
           position: "top-center",
         });
       }
-      state.cartTotalPrice = cartTotalPriceCalculator(state.cartItems);
+      state.cartTotalPrice = cartTotalPriceCalculator(state.items);
       state.user = action.payload.currentUser;
       console.log("state", JSON.stringify(state));
-      updateCart(state, {});
+      updateCart();
     },
     deleteAllFromCart(state, action) {
-      state.cartItems = [];
-      state.cartTotalPrice = cartTotalPriceCalculator(state.cartItems);
+      state.items = [];
+      state.cartTotalPrice = cartTotalPriceCalculator(state.items);
       state.user = action.payload.currentUser;
-      updateCart(state, {});
+      updateCart();
     },
     resetCart: (state) => {
       state.user = {};
-      state.cartItems = [];
+      state.items = [];
       state.cartTotalPrice = 0;
+      updateCart();
     },
     setCart: (state, action) => {
       state.user = action.payload.user;
-      state.cartItems = action.payload.cartItems;
-
+      state.items = action.payload.items;
       state.cartTotalPrice = action.payload.cartTotalPrice;
     },
     updateShippingPrice: (state, action) => {
       state.shippingPrice = action.payload.shipping.price;
-      updateCart(state, {
-        selectedShippingId: action.payload.shipping._id,
-      });
+      state.selectedShippingId = action.payload.shipping._id;
+      updateCart();
     },
     updateDiscountPrice: (state, action) => {
       state.discountPrice = action.payload.discountPrice;
-      updateCart(state, { couponId: action.payload.coupon._id });
+      state.couponId = action.payload.coupon._id;
+      updateCart();
     },
     setUserInCart: (state, action) => {
-      state.user = action.payload.user;
-      updateCart(state, {});
+      state.user = action.payload.user._id;
+      updateCart();
+    },
+    setCartStatus: (state, action) => {
+      state.validCart = action.payload;
+    },
+    setCartId: (state, action) => {
+      state._id = action.payload;
     },
   },
 });
@@ -190,5 +166,7 @@ export const {
   setUserInCart,
   updateShippingPrice,
   updateDiscountPrice,
+  setCartStatus,
+  setCartId,
 } = cartSlice.actions;
 export default cartSlice.reducer;

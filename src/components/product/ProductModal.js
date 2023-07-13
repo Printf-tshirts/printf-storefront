@@ -24,7 +24,7 @@ function ProductModal({
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cartItems } = useSelector((state) => state.cart);
+  const { items } = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
 
   const [selectedProductColor, setSelectedProductColor] = useState(
@@ -38,7 +38,7 @@ function ProductModal({
   );
   const [quantityCount, setQuantityCount] = useState(1);
   const productCartQty = getProductCartQuantity(
-    cartItems,
+    items,
     product,
     selectedProductColor,
     selectedProductSize,
