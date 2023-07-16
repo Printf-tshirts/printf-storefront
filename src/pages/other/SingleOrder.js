@@ -89,7 +89,7 @@ export const SingleOrder = () => {
       <Fragment>
         <SEO
           titleTemplate="Single Order"
-          description="My Order page of flone react minimalist eCommerce template."
+          description="My Order page of printcoder.com"
         />
         <LayoutOne>
           {/* breadcrumb */}

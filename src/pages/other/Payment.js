@@ -37,7 +37,7 @@ export const Payment = () => {
     <Fragment>
       <SEO
         titleTemplate="Payment"
-        description="payment page of flone react minimalist eCommerce template."
+        description="payment page of printcoder.com"
       />
       <LayoutOne>
         <Breadcrumb

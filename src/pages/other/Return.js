@@ -16,8 +16,8 @@ export const Return = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Return Policy"
-        description="Return Policy page of flone react minimalist eCommerce template."
+        title="Return Policy"
+        description="Return Policy page of printcoder.com"
       />
       <LayoutOne>
         {/* breadcrumb */}
@@ -32,106 +32,75 @@ export const Return = () => {
         />
         <div className="container my-5">
           <div className="d-flex align-items-center justify-content-center w-100">
-            <h1>Privacy Policy</h1>
+            <h1>Return Policy</h1>
           </div>
           <div>
             <p>
-              This Privacy Policy outlines how Printcoder collects, uses, and
-              protects the information you provide when using our website
-              (www.printcoder.com). We are committed to respecting your privacy
-              and protecting your personal information.
+              Thank you for shopping at Printcoder. We strive to ensure that you
+              are satisfied with your purchase. Please read our return policy
+              carefully before making a purchase.
             </p>
 
-            <h2>1. Information Collection</h2>
+            <h2>1. Return Policy Overview</h2>
             <p>
-              We may collect the following types of information when you
-              interact with our website:
+              We have a strict no-return policy. Once an order is placed and the
+              payment is processed, it cannot be returned for a refund.
+            </p>
+
+            <h2>2. Replacement Policy</h2>
+            <p>
+              In special cases, we may offer replacements for the following
+              situations:
             </p>
             <ul>
               <li>
-                Personal Information: This may include your name, email address,
-                contact information, and other details you provide when making a
-                purchase or contacting us.
+                Size Issues: If you receive a product with an incorrect size, we
+                may offer a replacement for the same design in the correct size.
+                Please refer to our size guide before placing an order.
               </li>
               <li>
-                Usage Information: We may collect data on how you interact with
-                our website, including your browsing activities, IP address,
-                device information, and referral sources.
+                Damaged Product: If your product arrives damaged, please contact
+                our customer support within 2 days of receiving the order. We
+                may request photographic evidence of the damage. Upon
+                verification, we will offer a replacement for the same design.
               </li>
-            </ul>
-
-            <h2>2. Use of Information</h2>
-            <p>We use the collected information for the following purposes:</p>
-            <ul>
-              <li>To process and fulfill your orders</li>
-              <li>To provide customer support and respond to inquiries</li>
-              <li>To improve our website, products, and services</li>
-              <li>To send promotional emails and updates with your consent</li>
               <li>
-                To enforce our terms and conditions and protect our rights
+                The Product should not have been used, washed, or dirty. The
+                product must also be in its original undamaged packaging with
+                all tags attached.
               </li>
             </ul>
-
-            <h2>3. Information Sharing</h2>
+            <h2>3. Process for Replacements</h2>
             <p>
-              We do not sell, trade, or rent your personal information to third
-              parties. However, we may share your information with trusted
-              third-party service providers who assist us in operating our
-              website, conducting business operations, or servicing you.
+              If you believe you are eligible for a replacement, please follow
+              these steps:
             </p>
+            <ol>
+              <li>
+                Contact our customer support within 2 days of receiving the
+                order to request a replacement.
+              </li>
+              <li>
+                Provide your order number, detailed information about the issue,
+                and any supporting documentation (such as photographs) as
+                requested by our customer support team.
+              </li>
+              <li>
+                Once your request is reviewed and approved, we will provide
+                instructions on how to return the damaged or incorrect product
+                (if applicable).
+              </li>
+              <li>
+                Upon receiving the returned product, we will process the
+                replacement and ship the new product to you. Please note that
+                the replacement will be for the same design and size.
+              </li>
+            </ol>
 
-            <h2>4. Data Security</h2>
+            <h2>4. Contact Us</h2>
             <p>
-              We take appropriate measures to protect the confidentiality,
-              integrity, and security of your personal information. However,
-              please note that no data transmission over the internet or
-              electronic storage method is 100% secure.
-            </p>
-
-            <h2>5. Cookies and Tracking Technologies</h2>
-            <p>
-              We use cookies and similar tracking technologies to enhance your
-              browsing experience and collect information about your usage
-              patterns. You can modify your browser settings to manage cookies
-              or opt-out of certain tracking technologies.
-            </p>
-
-            <h2>6. Links to Third-Party Websites</h2>
-            <p>
-              Our website may contain links to third-party websites. We are not
-              responsible for the privacy practices or content of those
-              websites. We encourage you to review the privacy policies of
-              third-party websites before providing any personal information.
-            </p>
-
-            <h2>7. Children's Privacy</h2>
-            <p>
-              Our website is not intended for individuals under the age of 12.
-              We do not knowingly collect personal information from children. If
-              you believe we have inadvertently collected information from a
-              child, please contact us to request its deletion.
-            </p>
-
-            <h2>8. Your Rights</h2>
-            <p>
-              You have the right to access, update, or delete your personal
-              information. If you wish to exercise these rights or have any
-              concerns regarding your information, please contact us using the
-              information provided below.
-            </p>
-
-            <h2>9. Changes to this Privacy Policy</h2>
-            <p>
-              We reserve the right to update or modify this Privacy Policy at
-              any time. Any changes will be effective upon posting the revised
-              version on our website.
-            </p>
-
-            <h2>10. Contact Us</h2>
-            <p>
-              If you have any questions, concerns, or requests regarding this
-              Privacy Policy or our privacy practices, please contact us at
-              Email:{" "}
+              If you have any questions or concerns regarding our return and
+              replacement policy, please contact our customer support at email:{" "}
               <a href="mailto:contact@printcoder.com">contact@printcoder.com</a>
             </p>
           </div>

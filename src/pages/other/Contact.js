@@ -30,7 +30,7 @@ const Contact = () => {
     <Fragment>
       <SEO
         titleTemplate="Contact Us"
-        description="Contact Us page of flone react minimalist eCommerce template."
+        description="Contact Us page of printcoder.com"
       />
       <LayoutOne>
         {/* breadcrumb */}
@@ -46,76 +46,7 @@ const Contact = () => {
               <GoogleMap lat={47.444} lng={-122.176} />
             </div> */}
             <div className="custom-row-2 align-items-center">
-              <div className="col-12 col-lg-4 col-md-5">
-                <div className="contact-info-wrap">
-                  {/* <div className="single-contact-info">
-                    <div className="contact-icon">
-                      <i className="fa fa-phone" />
-                    </div>
-                    <div className="contact-info-dec">
-                      <p>+012 345 678 102</p>
-                      <p>+012 345 678 102</p>
-                    </div>
-                  </div> */}
-                  <div className="single-contact-info">
-                    <div className="contact-icon">
-                      <i className="fa fa-globe" />
-                    </div>
-                    <div className="contact-info-dec">
-                      <p>
-                        <a href="mailto:yourname@email.com">
-                          yourname@email.com
-                        </a>
-                      </p>
-                      <p>
-                        <a href="https://yourwebsitename.com">
-                          yourwebsitename.com
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                  {/* <div className="single-contact-info">
-                    <div className="contact-icon">
-                      <i className="fa fa-map-marker" />
-                    </div>
-                    <div className="contact-info-dec">
-                      <p>Address goes here, </p>
-                      <p>street, Crossroad 123.</p>
-                    </div>
-                  </div> */}
-                  <div className="contact-social text-center">
-                    <h3>Follow Us</h3>
-                    <ul>
-                      <li>
-                        <a href="//facebook.com">
-                          <i className="fa fa-facebook" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="//pinterest.com">
-                          <i className="fa fa-pinterest-p" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="//thumblr.com">
-                          <i className="fa fa-tumblr" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="//vimeo.com">
-                          <i className="fa fa-vimeo" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="//twitter.com">
-                          <i className="fa fa-twitter" />
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-lg-8 col-md-7">
+              <div className="col-12 col-lg-12 col-md-12">
                 <div className="contact-form">
                   <div className="contact-title mb-30">
                     <h2>Get In Touch</h2>
@@ -181,6 +112,75 @@ const Contact = () => {
                     </div>
                   </Form>
                   <p className="form-message" />
+                </div>
+              </div>
+              <div className="col-12 col-lg-12 col-md-12 my-3">
+                <div className="contact-info-wrap p-1">
+                  {/* <div className="single-contact-info">
+                    <div className="contact-icon">
+                      <i className="fa fa-phone" />
+                    </div>
+                    <div className="contact-info-dec">
+                      <p>+012 345 678 102</p>
+                      <p>+012 345 678 102</p>
+                    </div>
+                  </div> */}
+                  <div className="single-contact-info m-2 d-flex justify-content-center">
+                    <div className="contact-icon">
+                      <i className="fa fa-globe" />
+                    </div>
+                    <div className="contact-info-dec">
+                      <p>
+                        <a href="mailto:contact@printcoder.com">
+                          contact@printcoder.com
+                        </a>
+                      </p>
+                      {/* <p>
+                        <a href="https://yourwebsitename.com">
+                          yourwebsitename.com
+                        </a>
+                      </p> */}
+                    </div>
+                  </div>
+                  {/* <div className="single-contact-info">
+                    <div className="contact-icon">
+                      <i className="fa fa-map-marker" />
+                    </div>
+                    <div className="contact-info-dec">
+                      <p>Address goes here, </p>
+                      <p>street, Crossroad 123.</p>
+                    </div>
+                  </div> */}
+                  {/* <div className="contact-social text-center">
+                    <h3>Follow Us</h3>
+                    <ul>
+                      <li>
+                        <a href="//facebook.com">
+                          <i className="fa fa-facebook" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="//pinterest.com">
+                          <i className="fa fa-pinterest-p" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="//thumblr.com">
+                          <i className="fa fa-tumblr" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="//vimeo.com">
+                          <i className="fa fa-vimeo" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="//twitter.com">
+                          <i className="fa fa-twitter" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div> */}
                 </div>
               </div>
             </div>

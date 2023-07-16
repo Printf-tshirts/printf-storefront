@@ -102,10 +102,7 @@ const LoginRegister = () => {
   };
   return (
     <Fragment>
-      <SEO
-        titleTemplate="Login"
-        description="Login page of flone react minimalist eCommerce template."
-      />
+      <SEO titleTemplate="Login" description="Login page of printcoder.com" />
       <LayoutOne>
         {/* breadcrumb */}
         <Breadcrumb

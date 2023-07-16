@@ -98,10 +98,7 @@ const ShopGridStandard = () => {
 
   return (
     <Fragment>
-      <SEO
-        title={categoryHandle}
-        description="Shop page of flone react minimalist eCommerce template."
-      />
+      <SEO title={categoryHandle} description="Shop page of printcoder.com" />
 
       <LayoutOne>
         {/* breadcrumb */}

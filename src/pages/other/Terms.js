@@ -17,7 +17,7 @@ export const Terms = () => {
     <Fragment>
       <SEO
         titleTemplate="Terms & Conditions"
-        description="Terms & Conditions page of flone react minimalist eCommerce template."
+        description="Terms & Conditions page of printcoder.com"
       />
       <LayoutOne>
         {/* breadcrumb */}

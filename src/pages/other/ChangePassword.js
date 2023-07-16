@@ -51,7 +51,7 @@ export const ChangePassword = () => {
     <Fragment>
       <SEO
         titleTemplate="Change Password"
-        description="Change Password page of flone react minimalist eCommerce template."
+        description="Change Password page of printcoder.com"
       />
       <LayoutOne>
         {/* breadcrumb */}

@@ -56,7 +56,7 @@ const Product = () => {
     <Fragment>
       <SEO
         title={selectedVariant?.title}
-        description="Product Page of flone react minimalist eCommerce template."
+        description="Product Page of printcoder.com"
       />
 
       <LayoutOne headerTop="hidden">
@@ -91,12 +91,12 @@ const Product = () => {
         )}
 
         {/* product description tab */}
-        {!isLoading && product && (
+        {/* {!isLoading && product && (
           <ProductDescriptionTab
             spaceBottomClass="pb-90"
             productFullDesc={product.body_html}
           />
-        )}
+        )} */}
 
         {/* related product slider */}
         {!isLoading && product && (

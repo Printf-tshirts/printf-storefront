@@ -408,15 +408,15 @@ const ProductDescriptionInfo = ({
         <div>
           <div className="d-flex align-items-center my-3">
             <img width={"30"} src="/assets/custom/fast-delivery.png" alt="" />
-            <p className="mx-3 bold-text">Get it by Mon, Jul 17</p>
+            <p className="mx-3 bold-text">Free delivery on orders above ₹999</p>
           </div>
           <div className="my-3">
             <p className="bold-text">BEST OFFERS </p>
-            <p>Best Price: Rs. 503</p>
+            <p>Introductory Discount Site Wide</p>
             <ul>
-              <li>Coupon Discount: 10% off (Your total saving: Rs. 1495)</li>
-              <li>Applicable on: Orders above Rs. 1499</li>
-              <li>Coupon code: MFC10</li>
+              <li>Special Discount Coupon for Extra 10%</li>
+              <li>Applicable on: Orders above ₹1499</li>
+              <li>Coupon code: FIRST100</li>
             </ul>
           </div>
         </div>

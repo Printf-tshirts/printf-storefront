@@ -54,7 +54,7 @@ export const MyOrders = () => {
     <Fragment>
       <SEO
         titleTemplate="My Orders"
-        description="My Orders page of flone react minimalist eCommerce template."
+        description="My Orders page of printcoder.com"
       />
       <LayoutOne>
         {/* breadcrumb */}

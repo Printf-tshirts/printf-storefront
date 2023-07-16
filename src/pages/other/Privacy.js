@@ -17,7 +17,7 @@ export const Privacy = () => {
     <Fragment>
       <SEO
         titleTemplate="Privacy Policy"
-        description="Privacy Policy page of flone react minimalist eCommerce template."
+        description="Privacy Policy page of printcoder.com"
       />
       <LayoutOne>
         {/* breadcrumb */}

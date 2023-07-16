@@ -127,7 +127,7 @@ export const MyAddresses = () => {
     <Fragment>
       <SEO
         titleTemplate="My Addresses"
-        description="My Addresses page of flone react minimalist eCommerce template."
+        description="My Addresses page of printcoder.com"
       />
       <LayoutOne>
         {/* breadcrumb */}

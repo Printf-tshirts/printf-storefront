@@ -115,10 +115,7 @@ const Cart = () => {
   };
   return (
     <Fragment>
-      <SEO
-        titleTemplate="Cart"
-        description="Cart page of flone react minimalist eCommerce template."
-      />
+      <SEO titleTemplate="Cart" description="Cart page of printcoder.com" />
 
       <LayoutOne>
         {/* breadcrumb */}
