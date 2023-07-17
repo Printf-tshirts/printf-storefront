@@ -16,7 +16,7 @@ const About = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="About us"
+        title="About us | Printcoder"
         description="About page of printcoder.com"
       />
       <LayoutOne>
