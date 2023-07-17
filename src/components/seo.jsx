@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const SEO = ({ title, titleTemplate, description }) => {
-  titleTemplate = "PrintCoder";
+  titleTemplate = "PRINTCODER";
   return (
     <HelmetProvider>
       <Helmet>
@@ -21,7 +21,7 @@ SEO.propTypes = {
 };
 
 SEO.defaultProps = {
-  title: "Flone",
+  title: "PRINTCODER",
   titleTemplate: "Product Page",
   description: "Product page of printcoder.com",
 };
