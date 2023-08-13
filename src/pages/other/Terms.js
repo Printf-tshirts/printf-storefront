@@ -45,11 +45,11 @@ export const Terms = () => {
 
             <h2>1. Intellectual Property</h2>
             <p>
-              The content, logos, designs, and other materials on our website
-              are protected by intellectual property laws. You may not use,
+              The name & logos on our website are protected by intellectual
+              property laws and belongs to SISANC Services. You may not use,
               reproduce, distribute, modify, or create derivative works of our
-              intellectual property without prior written consent from
-              Printcoder.
+              intellectual property without prior written consent from SISANC
+              Services.
             </p>
 
             <h2>2. Product Information</h2>
@@ -68,8 +68,14 @@ export const Terms = () => {
               disrupt or interfere with the proper functioning of our website or
               compromise the security of our systems.
             </p>
-
-            <h2>4. Links to Third-Party Websites</h2>
+            <h2>4. Shipping Policy</h2>
+            <p>
+              Once the order is placed, we try to ship the product within 48 to
+              72 hours of the order confirmation. The tentative delivery time
+              for an order is between 3 to 20 days depending on the location and
+              under circumstances.
+            </p>
+            <h2>5. Links to Third-Party Websites</h2>
             <p>
               Our website may contain links to third-party websites for your
               convenience. We do not endorse or assume any responsibility for
@@ -78,7 +84,7 @@ export const Terms = () => {
               own risk.
             </p>
 
-            <h2>5. Limitation of Liability</h2>
+            <h2>6. Limitation of Liability</h2>
             <p>
               Printcoder and its affiliates will not be liable for any direct,
               indirect, incidental, consequential, or punitive damages arising
@@ -86,7 +92,7 @@ export const Terms = () => {
               purchased through our website.
             </p>
 
-            <h2>6. Governing Law</h2>
+            <h2>7. Governing Law</h2>
             <p>
               These Terms and Conditions shall be governed by and construed in
               accordance with the laws of Uttar Pradash. Any legal action or
@@ -94,7 +100,7 @@ export const Terms = () => {
               shall be brought exclusively in the courts of Uttar Pradash.
             </p>
 
-            <h2>7. Modifications</h2>
+            <h2>8. Modifications</h2>
             <p>
               We reserve the right to modify or update these Terms and
               Conditions at any time without prior notice. By continuing to use
@@ -102,7 +108,7 @@ export const Terms = () => {
               bound by the revised Terms and Conditions.
             </p>
 
-            <h2>8. Contact Us</h2>
+            <h2>9. Contact Us</h2>
             <p>
               If you have any questions or concerns regarding these Terms and
               Conditions, please contact us at Email:{" "}

@@ -13,7 +13,7 @@ const BannerThirty = ({ spaceTopClass, spaceBottomClass }) => {
                 <img
                   src={
                     process.env.PUBLIC_URL +
-                    "/assets/img/banner/banner-770x455.jpg"
+                    "/assets/img/banner/banner-770x455.png"
                   }
                   alt=""
                   className="img-fluid"
